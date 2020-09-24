@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_params, only: [:edit,:update,:destroy]
+  before_action :set_params, only: [:edit, :update, :destroy]
 
   def new
     @list = List.new
@@ -29,11 +29,12 @@ class ListsController < ApplicationController
   end
 
   private
-    def list_params
-      params.require(:list).permit(:title).merge(user: current_user)
-    end
 
-    def set_params
-      @list = List.find(params[:id])
-    end
+  def list_params
+    params.require(:list).permit(:title).merge(user: current_user)
+  end
+
+  def set_params
+    @list = List.find(params[:id])
+  end
 end
