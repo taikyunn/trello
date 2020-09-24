@@ -61,4 +61,15 @@ gem 'bootstrap', '~> 4.1.1'
 
 gem 'devise'
 
+
 gem 'font-awesome-sass', '~> 5.9.0'
+
+gem 'font-awesome-sass', '~> 5.9.0'
+
+gem 'pry-rails'
+
+gem 'rails-i18n'
+
+gem 'rspec-rails', '~> 4.0.0'
+
+
