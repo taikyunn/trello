@@ -58,3 +58,5 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.1'
 
 gem 'devise'
+
+gem 'font-awesome-sass', '~> 5.9.0'
