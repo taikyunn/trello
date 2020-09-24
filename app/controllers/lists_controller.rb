@@ -8,7 +8,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     binding.pry
     if @list.save
-      redirect_to :root_path
+      redirect_to root_path
     else
       render action: :new
     end
