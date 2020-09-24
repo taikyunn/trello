@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_params only: [:edit,:update]
+  before_action :set_params, only: [:edit,:update]
 
   def new
     @list = List.new
@@ -16,7 +16,7 @@ class ListsController < ApplicationController
   end
 
   def update
-    if @list.update
+    if @list.update(list_params)
       redirect_to root_path
     else
       ender action: :edit
