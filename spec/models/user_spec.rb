@@ -51,7 +51,7 @@ RSpec.describe User, type: :model do
           @user.password = '１２３ａｂｃ'
           @user.password_confirmation = '１２３ａｂｃ'
           @user.valid?
-          expect(@user.errors.full_messages).to include("パスワードは6文字以上で入力してください")
+          expect(@user.errors.full_messages).to include('パスワードは6文字以上で入力してください')
         end
         it 'passwordが存在していてもpassword_confirmationが空では登録できない' do
           @user.password = 'aaa111'

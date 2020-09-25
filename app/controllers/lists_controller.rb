@@ -7,7 +7,6 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    binding.pry
     if @list.save
       redirect_to root_path
     else
