@@ -1,5 +1,5 @@
 class CardController < ApplicationController
-  before_action :set_params, only: [:show,:edit,:update]
+  before_action :set_params, only: [:show, :edit, :update]
 
   def new
     @card = Card.new
@@ -24,8 +24,9 @@ class CardController < ApplicationController
   end
 
   private
+
   def card_params
-    params.require(:card).permit(:title,:memo,:list_id)
+    params.require(:card).permit(:title, :memo, :list_id)
   end
 
   def set_params
