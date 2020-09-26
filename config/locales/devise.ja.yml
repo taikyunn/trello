@@ -26,7 +26,8 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
     models:
-      user: ユーザ
+      user: ユーザ-
+      email: Eメール
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
@@ -139,8 +140,4 @@ ja:
       not_locked: は凍結されていません。
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
-<<<<<<< HEAD
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
-=======
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
->>>>>>> d25a94b31a91a1723da6ef0bd978dfef7ae5f613
