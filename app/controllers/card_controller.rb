@@ -1,4 +1,5 @@
 class CardController < ApplicationController
+  before_action :set_params, only: [:show]
 
   def new
     @card = Card.new
@@ -12,6 +13,9 @@ class CardController < ApplicationController
     else
       render action: :new
     end
+  end
+
+  def show
   end
 
   private
