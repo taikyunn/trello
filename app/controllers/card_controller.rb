@@ -1,5 +1,5 @@
 class CardController < ApplicationController
-  before_action :set_params, only: [:show]
+  before_action :set_params, only: [:show,:edit,:update]
 
   def new
     @card = Card.new
@@ -15,7 +15,12 @@ class CardController < ApplicationController
     end
   end
 
-  def show
+  def update
+    if @card.update
+      redirect_to root_parh
+    else
+      render action: :edit
+    end
   end
 
   private
