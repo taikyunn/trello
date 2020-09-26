@@ -28,6 +28,9 @@ class CardController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @lists = List.where(user:current_user)
+  end
   private
 
   def card_params
