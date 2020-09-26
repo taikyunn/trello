@@ -16,8 +16,8 @@ class CardController < ApplicationController
   end
 
   def update
-    if @card.update
-      redirect_to root_parh
+    if @card.update(card_params)
+      redirect_to root_path
     else
       render action: :edit
     end
