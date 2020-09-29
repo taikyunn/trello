@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_list, only: [:edit, :update, :destroy,:show]
+  before_action :set_list, only: [:edit, :update, :destroy, :show]
 
   def index
     @lists = List.all
@@ -39,9 +39,8 @@ class EventsController < ApplicationController
     end
   end
 
-def show
-  
-end
+  def show
+  end
 
   def destroy
     @event.destroy
@@ -52,10 +51,12 @@ end
   end
 
   private
-    def set_list
-      @list = List.find(params[:id])
-    end
-    def list_params
-      params.permit(:title, :description, :start_date, :end_date).merge(user_id: current_user.id)
-    end
+
+  def set_list
+    @list = List.find(params[:id])
+  end
+
+  def list_params
+    params.permit(:title, :description, :start_date, :end_date).merge(user_id: current_user.id)
+  end
 end
