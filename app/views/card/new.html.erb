@@ -3,7 +3,7 @@
   <div class='container'>
     <%= form_with model: @card, url: { action: :create }, html: { class: 'cardnewForm' }, local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
-      <%= f.hidden_field :list_id, value: @list.id %>
+      <%= f.label :list_id, value: @list.titlr %>
       <% if @card.errors.any? %>
         <p class="text-danger">タイトルは1～255文字以内で入力してください</p>
       <% end %>
