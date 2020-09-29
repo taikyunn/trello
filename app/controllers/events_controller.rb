@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     @list = List.new(list_params)
     respond_to do |format|
       if @list.save
-        format.html { redirect_to action: :index , notice: 'Event was successfully created.' }
+        format.html { redirect_to @list, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new }

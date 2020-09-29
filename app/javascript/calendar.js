@@ -22,12 +22,14 @@ document.addEventListener('turbolinks:load', function() {
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'  
         },  
      
+        events: 'events.json',
         initialDate: new Date(),  
-        navLinks: true, // can click day/week names to navigate views  
-        businessHours: true, // display business hours  
+        navLinks: true, 
+        businessHours: true, 
         editable: true,  
         selectable: true, 
-        events: '/events.json',
+        
+
     plugins: [ dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin]
     
   });
