@@ -1,7 +1,8 @@
+<%= render "shared/header"%>
 <div class="listnewPage">
   <div class="container">
     <%= form_with model: @list, url: lists_path ,method: :post, class: "new_list", local: true do |f| %>
-  
+    <%= render 'shared/error_messages', model: f.object %>
       <%= f.label :title %>
       <%= f.text_field :title, autofocus: true, class: "form-control listName", placeholder: "リスト名" %>
       <div class="text-center"><%= f.submit "作成", class: "submitBtn" %></div>
