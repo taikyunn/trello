@@ -3,6 +3,7 @@
         <ul class="header_menu">
           <% if user_signed_in? %>
             <li class="nav-link"><%= link_to current_user.nickname, "#" %>さん</li>
+            <li class="nav-link"><%= link_to "カレンダー", "#" %></li>
           <% else %>
             <li class="nav-link"><%= link_to 'ゲスト', "#" %>さん</li>
           <% end %>
