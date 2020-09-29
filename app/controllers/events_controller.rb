@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def index
     @lists = List.all
@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @list = List.new(event_params)
+    @list = List.new(list_params)
     respond_to do |format|
       if @list.save
         format.html { redirect_to @list, notice: 'Event was successfully created.' }
@@ -35,7 +35,9 @@ class EventsController < ApplicationController
     end
   end
 
-
+def show
+  
+end
   def destroy
     @event.destroy
     respond_to do |format|
@@ -45,11 +47,10 @@ class EventsController < ApplicationController
   end
 
   private
-    def set_event
-      @event = Event.find(params[:id])
+    def set_list
+      @list = List.find(params[:id])
     end
-
-    def event_params
+    def list_params
       params.permit(:title, :description, :start_date, :end_date).merge(user_id: current_user.id)
     end
 end
