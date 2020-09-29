@@ -2,22 +2,22 @@
 
   <div class="field">
     <%= f.label :タイトル%>
-    <%= f.text_field :title %>
+    <%= f.text_field :title , autofocus: true, class: "form-control listName", placeholder: "リスト名" %>
   </div>
 
   <div class="field">
     <%= f.label :説明 %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
   </div>
 
   <div class="field">
     <%= f.label :開始時刻 %>
-    <%= f.datetime_select :start_date %>
+    <%= f.datetime_select :start_date , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
   </div>
 
   <div class="field">
     <%= f.label :終了時刻 %>
-    <%= f.datetime_select :end_date %>
+    <%= f.datetime_select :end_date , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
   </div>
 
   <div class="actions">

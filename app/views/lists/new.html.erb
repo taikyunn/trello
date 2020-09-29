@@ -2,8 +2,16 @@
   <div class="container">
     <%= form_with model: @list, url: lists_path ,method: :post, class: "new_list", local: true do |f| %>
   
-      <%= f.label :title %>
+      <%= f.label :タイトル %>
       <%= f.text_field :title, autofocus: true, class: "form-control listName", placeholder: "リスト名" %>
+      <%= f.label :説明 %>
+      <%= f.text_area :description, autofocus: true, class: "form-control listName", placeholder: "説明" %>
+      <%= f.label :開始時刻 %>
+      <%= f.datetime_select :start_date, autofocus: true, class: "form-control listName", placeholder: "開始時刻" %>
+      <br>
+      <%= f.label :終了時刻 %>
+      <%= f.datetime_select :end_date, autofocus: true, class: "form-control listName", placeholder: "終了時刻" %>
+
       <div class="text-center"><%= f.submit "作成", class: "submitBtn" %></div>
     <% end %>
   </div>
