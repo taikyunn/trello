@@ -1,6 +1,10 @@
 class ListsController < ApplicationController
   before_action :set_params, only: [:edit, :update, :destroy]
 
+  def index
+    @lists = List.all
+  end
+  
   def new
     @list = List.new
   end
@@ -16,7 +20,7 @@ class ListsController < ApplicationController
 
   def show
   end
-  
+
   def update
     if @list.update(list_params)
       redirect_to root_path

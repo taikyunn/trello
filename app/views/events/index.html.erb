@@ -1,8 +1,6 @@
 <%= render "shared/header"%>
 <p id="notice"><%= notice %></p>
-
-<h1><%= @list.title %></h1>
-
+  <h1><%= @list.title %></h1>
 <br>
-<div id='calendar'></div>
+  <div id='calendar'></div>
 <%= link_to 'New Event', new_list_event_path %>
