@@ -1,9 +1,9 @@
 class CardController < ApplicationController
   before_action :set_params, only: [:show, :edit, :update,:destroy]
+  before_action :list_params, only: [:new,:show, :edit]
 
   def new
     @card = Card.new
-    @list = List.find_by(params[:list_id])
   end
 
   def create
@@ -39,5 +39,9 @@ class CardController < ApplicationController
 
   def set_params
     @card = Card.find(params[:id])
+  end
+
+  def list_params
+    @list = List.find_by(params[:list_id])
   end
 end
