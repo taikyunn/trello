@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:edit, :update, :destroy,:show]
 
   def index
     @lists = List.all
@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     @list = List.new(list_params)
     respond_to do |format|
       if @list.save
-        format.html { redirect_to @list, notice: 'Event was successfully created.' }
+        format.html { redirect_to action: :index , notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new }
@@ -23,11 +23,15 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    list = List.where(params[:id])
+  end
+
   def update
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
+        format.json { render :index, status: :ok, location: @event }
       else
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -38,6 +42,7 @@ class EventsController < ApplicationController
 def show
   
 end
+
   def destroy
     @event.destroy
     respond_to do |format|
