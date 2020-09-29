@@ -1,6 +1,8 @@
+
     <header class="header">
       <nav class="nav">
-        <ul class="header_menu"> 
+        <ul class="header_menu">
+        
           <% if @list.present? %>
             <li class="nav-link"><%= link_to current_user.nickname, "#" %>さん</li>
             <li class="nav-link"><%= link_to "カレンダー", list_events_path(@list.id) %></li>

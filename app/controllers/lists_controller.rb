@@ -13,7 +13,9 @@ class ListsController < ApplicationController
       render action: :new
     end
   end
-
+  def show
+    
+  end
   def update
     if @list.update(list_params)
       redirect_to root_path

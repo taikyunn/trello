@@ -1,6 +1,6 @@
 class CardController < ApplicationController
   before_action :set_params, only: [:show, :edit, :update,:destroy]
-  before_action :list_params, only: [:new,:show, :edit]
+  before_action :list_params, only: [:new,:show]
 
   def new
     @card = Card.new
@@ -23,6 +23,7 @@ class CardController < ApplicationController
     end
   end
 
+ 
   def destroy
     @card.destroy
     redirect_to root_path
