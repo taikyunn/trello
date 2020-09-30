@@ -43,7 +43,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @list.destroy
     respond_to do |format|
       format.html { redirect_to action: :index, notice: 'Event was successfully destroyed.' }

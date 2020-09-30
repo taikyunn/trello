@@ -1,5 +1,4 @@
 <%= render "shared/header" %> 
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>タイトル名:</strong>
@@ -21,5 +20,6 @@
   <%= @list.end_date %>
 </p>
 
-<%= link_to 'Edit', edit_list_event_path(@list) %> 
-<%= link_to 'Back', list_events_path(@list) %>
+<%= link_to '編集する', edit_list_event_path(@list) %> 
+<%= link_to '削除する', list_event_path(@list.id), method: :delete %>
+<%= link_to '戻る', list_events_path(@list) %>
