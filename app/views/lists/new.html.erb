@@ -1,5 +1,4 @@
-
-  <div class="listnewPage">
+<div class="listnewPage">
     <div class="container">
       <%= form_with model: @list, url: lists_path ,method: :post, class: "new_list", local: true do |f| %>
     
@@ -12,7 +11,6 @@
         <br>
         <%= f.label :終了時刻 %>
         <%= f.datetime_select :end_date, autofocus: true, class: "form-control listName", placeholder: "終了時刻" %>
-
         <div class="text-center"><%= f.submit "作成", class: "submitBtn" %></div>
       <% end %>
     </div>
