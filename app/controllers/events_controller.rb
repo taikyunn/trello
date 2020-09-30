@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
+    @list = List.new(list_param)
     respond_to do |format|
       if @list.save
         format.html { redirect_to @list, notice: 'Event was successfully created.' }
@@ -28,7 +28,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    binding.pry
     respond_to do |format|
       if @list.update(list_params)
         format.html { redirect_to @list, notice: 'Event was successfully updated.' }
@@ -44,9 +43,10 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    binding.pry
     @list.destroy
     respond_to do |format|
-      format.html { redirect_to lists_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to action: :index, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -55,6 +55,10 @@ class EventsController < ApplicationController
 
   def set_list
     @list = List.find(params[:id])
+  end
+
+  def list_param
+    params.permit(:title, :description, :start_date, :end_date).merge(user_id: current_user.id)
   end
 
   def list_params
