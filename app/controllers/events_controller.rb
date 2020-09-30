@@ -28,13 +28,14 @@ class EventsController < ApplicationController
   end
 
   def update
+    binding.pry
     respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :index, status: :ok, location: @event }
+      if @list.update(list_params)
+        format.html { redirect_to @list, notice: 'Event was successfully updated.' }
+        format.json { render :index, status: :ok, location: @list }
       else
         format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,9 +44,9 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event.destroy
+    @list.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to lists_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -57,6 +58,6 @@ class EventsController < ApplicationController
   end
 
   def list_params
-    params.permit(:title, :description, :start_date, :end_date).merge(user_id: current_user.id)
+    params.require(:list).permit(:title, :description, :start_date, :end_date).merge(user_id: current_user.id)
   end
 end

@@ -1,10 +1,12 @@
 <header class="header">
   <nav class="nav">
     <ul class="header_menu">
-      <% if @list.present? %>
+      <% if @list.present? && user_signed_in? %>
         <li class= "nav-link"><%= link_to current_user.nickname, "#" %>さん</li>
         <li><%= link_to "カレンダー", list_events_path(@list.id), class: "nav-link" %></li>
-      <% else %>
+      <% elsif user_signed_in? %>
+        <li class= "nav-link"><%= link_to current_user.nickname, "#" %>さん</li>
+      <% else%>
         <li><%= link_to 'ゲスト', "#", class: "nav-link" %>さん</li>
         <li><%= link_to "カレンダー", "#", class: "nav-link" %></li>
       <% end %>
