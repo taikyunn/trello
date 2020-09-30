@@ -2,10 +2,11 @@
   <nav class="nav">
     <ul class="header_menu">
       <% if @list.present? %>
-        <li class="nav-link"><%= link_to current_user.nickname, "#" %>さん</li>
-        <li class="nav-link"><%= link_to "カレンダー", list_events_path(@list.id) %></li>
+        <li class= "nav-link"><%= link_to current_user.nickname, "#" %>さん</li>
+        <li><%= link_to "カレンダー", list_events_path(@list.id), class: "nav-link" %></li>
       <% else %>
-        <li class="nav-link"><%= link_to 'ゲスト', "#" %>さん</li>
+        <li><%= link_to 'ゲスト', "#", class: "nav-link" %>さん</li>
+        <li><%= link_to "カレンダー", "#", class: "nav-link" %></li>
       <% end %>
         <li class="header_menu_title"><%= link_to "Trello", root_path, class: "nav-link" %></li>
         <li>
