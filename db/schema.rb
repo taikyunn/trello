@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_033403) do
     t.string "title", null: false
     t.text "memo"
     t.bigint "list_id", null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["list_id"], name: "index_cards_on_list_id"

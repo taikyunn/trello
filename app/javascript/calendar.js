@@ -28,6 +28,7 @@ document.addEventListener('turbolinks:load', function() {
         businessHours: true, 
         editable: true,  
         selectable: true, 
+        droppable: true,
         
 
     plugins: [ dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin]
