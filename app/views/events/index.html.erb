@@ -1,0 +1,7 @@
+<%= render "shared/header"%>
+<p id="notice"><%= notice %></p>
+  <h1><%= @list.title %></h1>
+<br>
+  <div id='calendar'></div>
+<%= link_to 'リストを作成', new_list_event_path %><br>
+<%= link_to 'カードを作成', new_list_card_path %>

@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: 'tops#index'
   resources :lists do
     resources :card
+    resources :events
   end
 end

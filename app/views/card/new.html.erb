@@ -14,8 +14,13 @@
       <div class="cardnewForm_memo">
         <%= f.label :memo %>
         <%= f.text_area :memo, autofocus: true, class: "form-control", placeholder: "詳細" %>
-      <div class="text-center"><%= f.submit "作成する", class: "submitBtn" %></div>
       </div>
+        <%= f.label :開始時刻 %>
+        <%= f.datetime_select :start_date, autofocus: true, class: "form-control", placeholder: "開始時刻" %>
+        <br>
+        <%= f.label :終了時刻 %>
+        <%= f.datetime_select :end_date, autofocus: true, class: "form-control", placeholder: "終了時刻" %>
+      <div class="text-center"><%= f.submit "作成する", class: "submitBtn" %></div>
     <% end %>
   </div>
 </div>

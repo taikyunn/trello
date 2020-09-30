@@ -1,9 +1,9 @@
 class CardController < ApplicationController
-  before_action :set_params, only: [:show, :edit, :update,:destroy]
+  before_action :set_params, only: [:show, :edit, :update, :destroy]
+  before_action :list_params, only: [:new, :show]
 
   def new
     @card = Card.new
-    @list = List.find_by(params[:list_id])
   end
 
   def create
@@ -29,8 +29,9 @@ class CardController < ApplicationController
   end
 
   def edit
-    @lists = List.where(user:current_user)
+    @lists = List.where(user: current_user)
   end
+
   private
 
   def card_params
@@ -39,5 +40,9 @@ class CardController < ApplicationController
 
   def set_params
     @card = Card.find(params[:id])
+  end
+
+  def list_params
+    @list = List.find_by(params[:list_id])
   end
 end

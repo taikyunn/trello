@@ -1,0 +1,32 @@
+<%= render "shared/header"%>
+<h1><%= @list.title %></h1>
+<%= form_with model: @list, url: list_event_path, method: :patch, local: true  do |f| %>
+
+  <div class="field">
+    <%= f.label :タイトル%>
+    <%= f.text_field :title , autofocus: true, class: "form-control listName", placeholder: "リスト名" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :説明 %>
+    <%= f.text_area :description , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :開始時刻 %>
+    <%= f.datetime_select :start_date , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :終了時刻 %>
+    <%= f.datetime_select :end_date , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @list %>
+<%= link_to 'delete', list_event_path, method: :delete %>
+<%= link_to 'Back', list_events_path %>
