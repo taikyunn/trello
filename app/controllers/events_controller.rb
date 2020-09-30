@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   def index
     @lists = List.all
     @list = List.where(params[:list_id]).first
+    @cards = Card.all
   end
 
   def new
