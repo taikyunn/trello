@@ -1,5 +1,9 @@
 class ListsController < ApplicationController
-  before_action :set_params, only: [:edit, :update, :destroy]
+  before_action :set_params, only: [:edit, :update, :destroy, :show]
+
+  def index
+    @lists = List.all
+  end
 
   def new
     @list = List.new
@@ -12,6 +16,9 @@ class ListsController < ApplicationController
     else
       render action: :new
     end
+  end
+
+  def show
   end
 
   def update
@@ -30,7 +37,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:title).merge(user: current_user)
+    params.require(:list).permit(:title, :description, :start_date, :end_date).merge(user: current_user)
   end
 
   def set_params

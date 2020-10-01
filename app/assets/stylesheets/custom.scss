@@ -18,11 +18,12 @@ body {
       position: relative;
       margin: 0;
       padding: 0;
-      justify-content: space-between;
+
       align-items: center;
       li {
         list-style: none;
         color: #fff;
+        justify-content: space-around;
         a {
           color: #fff;
         }

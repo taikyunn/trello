@@ -1,3 +1,4 @@
+
     <header class="header">
       <nav class="nav">
         <ul class="header_menu">
@@ -10,12 +11,13 @@
           <li>
             <ul class="header_menu_inner">
                 <li><%= link_to "リストを作成", new_list_path , class: "nav-link listNew" %></li>
+
               <% if user_signed_in? %>
                 <li><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
               <% else %>
                 <li><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
               <% end %>
-          </li>
-        </ul>
-      </nav>
-    </header>
+            </li>
+          </ul>
+    </nav>
+</header>

@@ -1,0 +1,26 @@
+<%= render "shared/header" %> 
+
+<p>
+  <strong>タイトル名:</strong>
+  <%= @list.title %>
+</p>
+
+<p>
+  <strong>説明:</strong>
+  <%= @list.description %>
+</p>
+
+<p>
+  <strong>開始時刻:</strong>
+  <%= @list.start_date %>
+</p>
+
+<p>
+  <strong>終了時刻:</strong>
+  <%= @list.end_date %>
+</p>
+
+<%= link_to 'カレンダーへ',list_events_path(@list.id) %>
+<%= link_to '編集する', edit_list_event_path(@list) %> 
+<%= link_to '削除する', list_event_path(@list.id), method: :delete %>
+<%= link_to '戻る', list_events_path(@list) %>
