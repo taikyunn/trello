@@ -2,6 +2,7 @@ function drag(){
   const card = document.getElementById("cardDrag");
 
       card.onmousedown = function(event){
+        card.style.position = "absolute";
         document.addEventListener("mousemove",onMouseMove);
 
       const onMouseMove = function(event){
