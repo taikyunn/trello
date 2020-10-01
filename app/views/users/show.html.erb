@@ -1,0 +1,11 @@
+<%= render "shared/header"%>
+<div class="contents row">
+  <p><%= @nickname %>さんのリスト一覧</p>
+  <% @lists.each do |list| %>
+      <p>タイトル：<%= list.title %></p>
+      <p>説明：<%= list.description %></p>
+      <p>開始日時：<%= list.start_date %></p>
+      <p>終了日時：<%= list.end_date %></p>
+    </div>
+  <% end %>
+</div>
