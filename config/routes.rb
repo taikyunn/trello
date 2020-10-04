@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   root to: 'tops#index'
   resources :lists do
-    resources :card
+    resources :cards
     member do
       get 'checked', to: 'cards#checked'
     end

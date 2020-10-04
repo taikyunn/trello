@@ -1,4 +1,4 @@
-class CardController < ApplicationController
+class CardsController < ApplicationController
   before_action :set_params, only: [:show, :edit, :update, :destroy]
   before_action :list_params, only: [:new, :show]
 
