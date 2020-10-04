@@ -34,17 +34,6 @@ class ListsController < ApplicationController
     redirect_to root_path
   end
 
-  def checked
-    list = List.find(params[id])
-    if list.checked
-      list.update(checked: false)
-    else
-      list.update(checked: true)
-    end
-
-    list = List.find(params[:id])
-    render json: {post: list}
-  end
 
   private
 
