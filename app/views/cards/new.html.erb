@@ -21,12 +21,11 @@
           <%= f.label :終了時刻 %>
           <%= f.datetime_select :end_date, autofocus: true, class: "form-control", placeholder: "終了時刻" %>
           <br>
-          <%= f.label :重要度%>
-            <div class="form-group row" id="star">
-              <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
-              <%= f.hidden_field :rate, id: :review_star %>
-            </div>
-              <script>
+          <div class="form-group row" id="star">
+            <%= f.label :rate,'重要度 ', class:'col-md-3 col-form-label' %>
+            <%= f.hidden_field :rate, id: :review_star %>
+          </div>
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
   $('#star').raty({
     size     : 36,
     starOff:  '<%= asset_path('star-off.png') %>',
