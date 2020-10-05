@@ -33,15 +33,15 @@ class CardsController < ApplicationController
   end
 
   def checked
-    card = Card.find(params[id])
-    if card.checked
-      card.update(checked: false)
-    else
-      card.update(checked: true)
-    end
+    # card = Card.find(params[id])
+    # if card.checked
+    #   card.update(checked: false)
+    # else
+    #   card.update(checked: true)
+    # end
 
-    card = Card.find(params[:id])
-    render json: {post: card}
+    # card = Card.find(params[:id])
+    # render json: {post: card}
   end
 
   private

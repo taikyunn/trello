@@ -2,7 +2,7 @@ function check() {
   const cards = document.getElementById("card");
     cards.addEventListener("click",() => {
       const XHR = new XMLHttpRequest();
-      XHR.open("GET", `/lists/${id}`, true);
+      XHR.open("GET", `/lists/{listId}/checked`, true);
       XHR.responseType = "json";
       XHR.send();
       XHR.onload = () => {
