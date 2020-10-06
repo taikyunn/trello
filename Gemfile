@@ -73,3 +73,7 @@ gem 'pry-rails'
 gem 'rails-i18n'
 
 gem 'rspec-rails', '~> 4.0.0'
+
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
