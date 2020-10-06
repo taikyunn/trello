@@ -1,10 +1,9 @@
 class User < ApplicationRecord
   has_many :lists
+  has_many :sns_credentials
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
-
-         has_many :sns_credentials
          
   with_options presence: true do
     validates :nickname, length: { maximum: 10, message: 'は10文字以下で入力してください' }
@@ -18,5 +17,10 @@ class User < ApplicationRecord
       nickname: auth.info.name,
         email: auth.info.email
     )
+    if user.persisted?
+      sns.user = user
+      sns.save
+    end
+    { user: user, sns: sns }
   end
 end
