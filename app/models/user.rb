@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
-         
+
   with_options presence: true do
     validates :nickname, length: { maximum: 10, message: 'は10文字以下で入力してください' }
     validates :email, uniqueness: true
@@ -15,7 +15,7 @@ class User < ApplicationRecord
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
     user = User.where(email: auth.info.email).first_or_initialize(
       nickname: auth.info.name,
-        email: auth.info.email
+      email: auth.info.email
     )
     if user.persisted?
       sns.user = user
