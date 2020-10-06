@@ -12,8 +12,6 @@
           <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post %>
         </div>
       </div>
-      <div class="text-center"><%= render "devise/shared/links" %></div>
-
 
       <%= form_with scope: resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-5, new_user" }, local: true do |f| %>
         <%= flash[:notice] %>
