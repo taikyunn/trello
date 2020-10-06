@@ -11,4 +11,12 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :password, format: { with: /[a-z\d]{6,}/i, message: 'は6文字以上で入力してください' }
   end
+
+  def self.from_omniauth(auth)
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    user = User.where(email: auth.info.email).first_or_initialize(
+      nickname: auth.info.name,
+        email: auth.info.email
+    )
+  end
 end

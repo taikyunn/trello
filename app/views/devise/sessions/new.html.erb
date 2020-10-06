@@ -3,6 +3,9 @@
     <h2 class="title">trelloにサインイン</h2>
     <div class="text-center m-3">or</div>
     <div class="text-center"><%= render "devise/shared/links" %></div>
+    <%= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post%>
+    <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post%>
+
 
     <%= form_with scope: resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-5, new_user" }, local: true do |f| %>
       <%= flash[:notice] %>
