@@ -34,6 +34,7 @@ class ListsController < ApplicationController
     redirect_to root_path
   end
 
+
   private
 
   def list_params

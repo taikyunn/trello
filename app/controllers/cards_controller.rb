@@ -1,4 +1,4 @@
-class CardController < ApplicationController
+class CardsController < ApplicationController
   before_action :set_params, only: [:show, :edit, :update, :destroy]
   before_action :list_params, only: [:new, :show]
 
@@ -30,6 +30,18 @@ class CardController < ApplicationController
 
   def edit
     @lists = List.where(user: current_user)
+  end
+
+  def checked
+    # card = Card.find(params[id])
+    # if card.checked
+    #   card.update(checked: false)
+    # else
+    #   card.update(checked: true)
+    # end
+
+    # card = Card.find(params[:id])
+    # render json: {post: card}
   end
 
   private
