@@ -1,35 +1,44 @@
-<div class='signinPage'>
-  <div class='container'>
-    <h2 class="title">trelloにサインイン</h2>
-    <div class="text-center m-3">or
-    <br />
-    <%= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post %>
-    <br />or<br />
-    <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post%>
+<%= render "shared/second-header"%>
+  <div class='signinPage'>
+    <div class='container'>
+      <h2 class="title">trelloにサインイン</h2>
+      <div class="text-center m-3">
+        <div class = "btn btn-block btn-social btn-facebook ">
+          <span class = "fab fa-facebook-f"></span>
+          <%= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post%>
+        </div>
+        <div class = "btn btn-block btn-social btn-google ">
+          <span class = "fab fa-google"></span>
+          <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post %>
+        </div>
+      </div>
+      <div class="text-center"><%= render "devise/shared/links" %></div>
+
+
+      <%= form_with scope: resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-5, new_user" }, local: true do |f| %>
+        <%= flash[:notice] %>
+        <%= flash[:alert] %>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "emailを入力してください" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "パスワードを入力してください"  %>
+        </div>
+
+        <div class="form-group text-center">
+          <%= f.submit "サインイン", class: "loginBtn" %>
+        </div>
+          <div class = "btn btn-block btn-social btn-facebook ">
+            <span class = "fab fa-facebook-f"></span>
+            <%= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post%>
+          </div>
+          <div class = "btn btn-block btn-social btn-google ">
+            <span class = "fab fa-google"></span>
+            <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post %>
+          </div>
+      <% end %>
     </div>
-    <div class="text-center"><%= render "devise/shared/links" %></div>
-
-
-    <%= form_with scope: resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-5, new_user" }, local: true do |f| %>
-      <%= flash[:notice] %>
-      <%= flash[:alert] %>
-      <div class="form-group">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "emailを入力してください" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "パスワードを入力してください"  %>
-      </div>
-
-      <div class="form-group text-center">
-        <%= f.submit "サインイン", class: "loginBtn" %>
-        <br />
-        <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post %>
-        <br />
-        <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post %>
-      </div>
-    <% end %>
   </div>
-</div>
