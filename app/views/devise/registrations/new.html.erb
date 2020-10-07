@@ -1,20 +1,12 @@
 <%= render "shared/second-header"%>
   <div class="sinupPage">
     <div class="titleArea">
-      <h1>アカウントを新規作成</h1>
+      <h1>アカウントを新規作成</h1>or
+        <br />
+      <%= link_to "ログイン", new_user_session_path %>
       <div class="m-3">
-        <div class = "btn btn-block btn-social btn-facebook ">
-          <span class = "fab fa-facebook-f"></span>
-          <%= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post %>
-        </div>
-        <div class = "btn btn-block btn-social btn-google ">
-          <span class = "fab fa-google"></span>
-          <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post %>
-        </div>
       </div>
     </div>
-
-
     <div class='container'>
       <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), html: { class: "mt-5, signupForm" }, local: true do |f| %>
 
@@ -46,6 +38,16 @@
         <div class="text-center">
           <%= f.submit "アカウントを作成", class: "btn submitBtn" %>
         </div>
+        <br />
+        <div class = "container btn btn-block btn-social bg-primary  btn-facebook w-50 ">
+          <span class = "fab fa-facebook-f "></span>
+          <%= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post,  class: "text-light" %>
+        </div>
+        <div class = "container btn btn-block btn-social bg-success btn-google w-50 ">
+          <span class = "fab fa-google"></span>
+          <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post, class: "text-light" %>
+        </div>
       <% end %>
+      
     </div>
   </div>
