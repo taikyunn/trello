@@ -1,40 +1,44 @@
 <%= render "shared/header"%>
-  <div class="cardnewPgae">
-    <div class='container'>
+  <div class="cardnewPgae bg-light">
+    <div class='container bg-white p-5'>
+      <h2 class="font-weight-bold text-center "><%= @list.title %></h2>
       <%= form_with model: @card, url: { action: :create }, html: { class: 'cardnewForm' }, local: true do |f| %>
         <%= f.hidden_field :list_id, value: @list.id %>
         <% if @card.errors.any? %>
           <p class="text-danger">タイトルは1～255文字以内で入力してください</p>
         <% end %>
         <div class="cardnewForm_title">
-          <%= f.label :list, value: @list.title %>
-          <%= f.label :title %>
-          <%= f.text_field :title, autofocus: true, class: "form-control", placeholder: "カード名" %>
+          <div class="font-weight-bold ">
+            タイトル
+            <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
+          </div>
+          <%= f.text_field :title, autofocus: true, class: "form-control mt-4", placeholder: "カード名" %>
         </div>
         <div class="cardnewForm_memo">
-          <%= f.label :memo %>
-          <%= f.text_area :memo, autofocus: true, class: "form-control", placeholder: "詳細" %>
-        </div>
-          <%= f.label :開始時刻 %>
-          <%= f.datetime_select :start_date, autofocus: true, class: "form-control", placeholder: "開始時刻" %>
-          <br>
-          <%= f.label :終了時刻 %>
-          <%= f.datetime_select :end_date, autofocus: true, class: "form-control", placeholder: "終了時刻" %>
-          <br>
-          <div class="form-group row" id="star">
-            <%= f.label :rate,'重要度 ', class:'col-md-3 col-form-label' %>
-            <%= f.hidden_field :rate, id: :review_star %>
+          <div class="font-weight-bold mt-4">
+            メモ
+            <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
           </div>
-              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
-  $('#star').raty({
-    size     : 36,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    scoreName: 'post[rate]',
-    half: true,
-  });
-  </script>  
+          <%= f.text_area :memo, autofocus: true, class: "form-control mt-4", placeholder: "詳細" %>
+        </div>
+        <div class="font-weight-bold mt-4">
+          開始時刻
+          <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+        </div>
+        <div class = "mt-4">
+          <%= f.datetime_select :start_date, include_blank: true, class: "form-control mt-4", placeholder: "開始時刻" %>
+        </div>
+        <div class="font-weight-bold mt-4">
+          終了時刻
+          <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+        </div>
+        <div class = "mt-4">
+          <%= f.datetime_select :end_date,include_blank: true, class: "form-control", placeholder: "終了時刻" %>
+        </div>
+          <div class="field" id="star">
+            <%= f.label :star %>
+            <%= f.hidden_field :star, id: :review_star %>
+          </div>
 
         <div class="text-center">
           <%= f.submit "作成する", class: "submitBtn" %>
