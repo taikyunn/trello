@@ -35,21 +35,10 @@
         <div class = "mt-4">
           <%= f.datetime_select :end_date,include_blank: true, class: "form-control", placeholder: "終了時刻" %>
         </div>
-          <br>
-          <div class="form-group row" id="star">
-            <%= f.label :rate,'重要度 ', class:'col-md-3 col-form-label' %>
-            <%= f.hidden_field :rate, id: :review_star %>
+          <div class="field" id="star">
+            <%= f.label :star %>
+            <%= f.hidden_field :star, id: :review_star %>
           </div>
-              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
-  $('#star').raty({
-    size     : 36,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    scoreName: 'post[rate]',
-    half: true,
-  });
-  </script>  
 
         <div class="text-center">
           <%= f.submit "作成する", class: "submitBtn" %>
