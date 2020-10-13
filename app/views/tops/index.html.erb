@@ -19,10 +19,8 @@
                     <% if card.memo.size > 0 %>
                       <div class="card_detail is-exist"><i class="fas fa-bars"></i></div>
                     <% end %>
-           
-                      <div id="star-<%= card.id %>"></div>
+                      <div id="star-rate-<%= card.id %>"></div>
                       <%= render "shared/star-read" %>
-        
                 </div>
               <% end %>
             <% end %>
