@@ -35,11 +35,14 @@
         <div class = "mt-4">
           <%= f.datetime_select :end_date,include_blank: true, class: "form-control", placeholder: "終了時刻" %>
         </div>
-          <div class="field" id="star">
-            <%= f.label :star %>
-            <%= f.hidden_field :star, id: :review_star %>
-          </div>
-
+        <div class="font-weight-bold mt-4">
+          重要度
+          <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+        </div>
+        <div class="mt-4" id="star">
+          <%= f.hidden_field :star, id: :cards_star %>
+          <%= render "shared/star" %>
+        </div>
         <div class="text-center">
           <%= f.submit "作成する", class: "submitBtn" %>
         </div>
