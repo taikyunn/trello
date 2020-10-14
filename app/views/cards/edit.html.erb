@@ -1,4 +1,4 @@
-<%# <%= render "shared/header" %> %>
+<%= render "shared/header" %>
 <div class="cardeditPgae">
   <div class='container'>
     <%= form_with model: @card, url: { action: :update }, html: { class: 'cardeditForm' }, local: true do |f| %>
@@ -14,6 +14,12 @@
       <div class="cardeditForm_memo">
         <label>リスト名</label>
         <%= select :card, :list_id, @lists.map{ |l| [l.title, l.id] }, {}, { class: 'form-control' } %>
+      </div>
+      <div class="cardeditForm_memo">
+        <label>重要度</label>
+          <%= f.hidden_field :star, id: :card_star %>
+          <div id="star-rate-<%= @card.id %>"></div>
+          <%= render "shared/edit"%>
       </div>
       <div class="text-center"><%= f.submit "更新する", class: "submitBtn" %></div>
     <% end %>
