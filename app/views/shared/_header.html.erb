@@ -3,14 +3,13 @@
     <ul class="header_menu">
       <% if user_signed_in? && @list.present? %>
         <li class="nav-link"><%= link_to current_user.nickname, user_path(current_user.id) %>さん</li>
-        <li class="nav-link"><%= link_to "カレンダー", list_events_path(@list.id)  %></li>
+        <li class="nav-link"><%= link_to "カレンダー", list_events_path(@list.id) %><i class= "far fa-calendar-alt "></i></li>
       <% elsif user_signed_in?  %>
         <li class="nav-link"><%= link_to current_user.nickname, user_path(current_user.id) %>さん</li>
       <% else %>
         <li class="nav-link"><%= link_to 'ゲスト', "#" %>さん</li>
       <% end %>
-          <li class="header_menu_title"><%= link_to "Trello", root_path, class: "nav-link" %></li>
-        <li>
+          <li class="header_menu_title"><%= link_to "Trello", root_path, class: "nav-link fas fa-home fa-fw " %></li>
           <ul class="header_menu_inner">
             <li><%= link_to "リストを作成", new_list_path , class: "nav-link listNew" %></li>
               <% if user_signed_in? %>
@@ -19,6 +18,6 @@
                 <li><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
               <% end %>
           </ul>
-          </li>
+      </ul>
     </nav>
 </header>

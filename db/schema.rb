@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_10_06_073123) do
     t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "star"
+    t.float "star"
     t.index ["list_id"], name: "index_cards_on_list_id"
   end
 

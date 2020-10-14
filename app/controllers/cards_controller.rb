@@ -16,6 +16,7 @@ class CardsController < ApplicationController
   end
 
   def update
+    binding.pry
     if @card.update(card_params)
       redirect_to root_path
     else
@@ -47,7 +48,7 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:title, :memo, :list_id, :start_date, :end_date)
+    params.require(:card).permit(:title, :memo, :list_id, :start_date, :end_date, :star)
   end
 
   def set_params
