@@ -3,7 +3,7 @@
     <ul class="header_menu">
       <% if user_signed_in? && @list.present? %>
         <li class="nav-link"><%= link_to current_user.nickname, user_path(current_user.id) %>さん</li>
-        <li class="nav-link"><%= link_to "カレンダー", list_events_path(@list.id), class: "far fa-calendar-alt " %></li>
+        <li class="nav-link"><%= link_to "カレンダー", list_events_path(@list.id) %><i class= "far fa-calendar-alt "></i></li>
       <% elsif user_signed_in?  %>
         <li class="nav-link"><%= link_to current_user.nickname, user_path(current_user.id) %>さん</li>
       <% else %>
