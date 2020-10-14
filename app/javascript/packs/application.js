@@ -9,6 +9,9 @@ require("@rails/activestorage").start()
 require("channels")
 require("../calendar")
 require("../drag")
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 require('jquery')
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -17,6 +20,3 @@ require('jquery')
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
