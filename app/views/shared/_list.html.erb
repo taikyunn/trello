@@ -14,9 +14,9 @@
             <div class="card" draggable="true" id= card >
               <h3 class="card_title"><%= card.title %></h3>
               <% if card.memo.size > 0 %>
-                <div class="card_detail is-exist"><i class="fas fa-bars"></i></div>
+                <div class="card_detail is-exist mb-2"><i class="fas fa-bars"></i></div>
               <% end %>
-                <div id="star-rate-<%= card.id %>"></div>
+                <div id="star-rate-<%= card.id %>"><span  class = "bg-dark p-1 text-white font-weight-bold rounded" >重要度</span></div>
                   <script>
                     /*!
                     * jQuery Raty - A Star Rating Plugin
