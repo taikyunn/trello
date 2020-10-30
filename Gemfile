@@ -76,3 +76,7 @@ gem 'omniauth-twitter'
 gem "omniauth-rails_csrf_protection"
 
 gem 'rack-attack'
+
+group :production do
+  gem 'rails_12factor'
+end
