@@ -36,6 +36,7 @@ services:
     stdin_open: true
     volumes:
       - .:/myapp
+    env_file: .sec_env
   nginx:
     build: containers/nginx
     ports:
