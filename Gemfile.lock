@@ -346,7 +346,7 @@ DEPENDENCIES
   rails (~> 6.0.0)
   rails-i18n
   rails_12factor
-  rspec-rails (~> 4.0.0)
+  rspec-rails
   rubocop
   sass-rails (~> 5)
   selenium-webdriver
