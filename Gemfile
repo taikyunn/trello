@@ -52,6 +52,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rspec-rails', '~> 4.0.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -64,11 +65,11 @@ gem 'devise'
 
 gem 'font-awesome-sass', '~> 5.9.0'
 
+gem 'rspec-rails', '~> 4.0.0'
+
 gem 'pry-rails'
 
 gem 'rails-i18n'
-
-gem 'rspec-rails', '~> 4.0.0'
 
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
