@@ -4,6 +4,7 @@
   </header>
     <div class="container bg-white p-5 ">
       <h2 class="font-weight-bold text-center ">リスト情報を入力</h2>
+       <%= render 'shared/error_messages', model:@list %>
         <%= form_with model: @list, url: lists_path ,method: :post, class: "new_list", local: true do |f|%>
         <div class="font-weight-bold ">
           タイトル
