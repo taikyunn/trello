@@ -1,8 +1,8 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/taikyunn/trello)
-## Name
+## アプリ名
 trello
 
-## Overview
+## 概要
 シンプルで使いやすい、タスク管理サービス。
 機能が充実している現代のサービスだからこそ、よりシンプルなサービスが求められていると考えました。
 タスク管理サービスtrelloをベースに作成しました。
