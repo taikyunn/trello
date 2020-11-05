@@ -1,17 +1,16 @@
 <% @lists.each do |list| %>
-  <div class="list" dropzone="move" id = "list">
-    <div class="list_header">
+  <div class="list" dropzone="move" >
+    <div class="list_header" >
       <h2 class="list_header_title"><%= list.title %></h2>
-      <div class="list_header_action">
+      <div class="list_header_action" >
       <%= link_to content_tag(:i, '', class: 'fas fa-trash'), list, method: :delete, data: { confirm: "#{list.title}を削除して大丈夫ですか？" } %> 
         <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_list_path(list)) %>
       </div>
     </div>
     <div class="cardWrapper">
-      <div id = "card">
         <% list.cards.each do |card| %>
           <%= link_to list_card_path(list, card), class:"cardDetail_link" do %>
-            <div class="card" draggable="true" id= card >
+            <div class="card" draggable="true" >
               <h3 class="card_title"><%= card.title %></h3>
               <% if card.memo.size > 0 %>
                 <div class="card_detail is-exist mb-2"><i class="fas fa-bars"></i></div>
