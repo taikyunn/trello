@@ -4,6 +4,7 @@
       <h2 class="font-weight-bold text-center "><%= @list.title %></h2>
       <%= form_with model: @card, url: { action: :create }, html: { class: 'cardnewForm' }, local: true do |f| %>
         <%= f.hidden_field :list_id, value: @list.id %>
+         <%= render 'shared/error_messages', model:@card %>
         <% if @card.errors.any? %>
           <p class="text-danger">タイトルは1～255文字以内で入力してください</p>
         <% end %>
