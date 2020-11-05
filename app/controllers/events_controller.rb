@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   def index
     @lists = List.all
     @list = List.where(params[:list_id]).first
-    @cards = Card.all
     respond_to do |format|
       format.html
       format.json
@@ -33,6 +32,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    binding.pry
     respond_to do |format|
       if @list.update(list_params)
         format.html { redirect_to @list, notice: 'Event was successfully updated.' }
@@ -42,9 +42,6 @@ class EventsController < ApplicationController
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def show
   end
 
   def destroy

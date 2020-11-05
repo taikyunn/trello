@@ -1,32 +1,48 @@
 <%= render "shared/header"%>
-<h1><%= @list.title %></h1>
-<%= form_with model: @list, url: list_event_path, method: :patch, local: true  do |f| %>
+  <%= form_with model: @list, url: { action: :update }, method: :patch, local: true  do |f| %>
+    <div class="bg-light">
+      <div class='container bg-white p-5'>
+        <h2 class="font-weight-bold text-center "><%= @list.title %></h2>
+        <div class="field">
+          <div class="font-weight-bold ">
+            タイトル
+            <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
+          </div>
+            <%= f.text_field :title , autofocus: true, class: "form-control listName mt-4", placeholder: "リスト名" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :タイトル%>
-    <%= f.text_field :title , autofocus: true, class: "form-control listName", placeholder: "リスト名" %>
-  </div>
+        <div class="field">
+          <div class="font-weight-bold mt-4">
+            説明
+            <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
+          </div>
+          <%= f.text_area :description , autofocus: true, class: "form-control listName mt-4", placeholder: "リスト名"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :説明 %>
-    <%= f.text_area :description , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
-  </div>
+        <div class="field">
+          <div class="font-weight-bold mt-4">
+            開始時刻
+            <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+          </div>
+          <div class ="mt-4">
+            <%= f.datetime_select :start_date , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
+          </div> 
+        </div>
 
-  <div class="field">
-    <%= f.label :開始時刻 %>
-    <%= f.datetime_select :start_date , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
-  </div>
+        <div class="field">
+          <div class="font-weight-bold mt-4">
+            終了時刻
+            <span class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+          </div>
+          <div class ="mt-4">
+            <%= f.datetime_select :end_date , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :終了時刻 %>
-    <%= f.datetime_select :end_date , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Show', @list %>
-<%= link_to 'delete', list_event_path, method: :delete %>
-<%= link_to 'Back', list_events_path %>
+        <div class="text-center">
+          <%= link_to '更新する', @list, class: "btn btn-primary  mt-4 w-50 text-white" %><br>
+          <%= link_to '削除する', list_events_path, class: "btn btn-danger mt-4 w-50 text-white" %><br>
+        </div>
+      </div>
+    </div>
+  <% end %>
