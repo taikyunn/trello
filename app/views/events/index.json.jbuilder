@@ -4,5 +4,3 @@ json.array!(@lists) do |list|
   json.end list.end_date
   json.url list_url(list, format: :html)
 end
-
-
