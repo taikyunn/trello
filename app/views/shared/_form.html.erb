@@ -37,10 +37,10 @@
         </div>
       </div>
 
-      <div class="actions">
-        <%= f.submit "保存する", class: "submitBtn test-center" %>
+      <div class="text-center">
+        <%= f.submit "保存する", class: "btn submitBtn" %><br />
+        <%= link_to '戻る', list_events_path, class: "btn btn-primary mt-4 w-50 text-white" %>
       </div>
-        <%= link_to '戻る', list_events_path, class: "submitBtn" %>
     </div>
   </div>
 <% end %>
