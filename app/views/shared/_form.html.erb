@@ -1,26 +1,46 @@
 <%= form_with model: @list, url: list_events_path, method: :post, local: true  do |f| %>
+  <div class="bg-light">
+    <div class='container bg-white p-5'>
+      <div class="field">
+        <div class="font-weight-bold ">
+          タイトル
+          <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
+        </div>
+        <%= f.text_field :title , autofocus: true, class: "form-control listName mt-4", placeholder: "タイトル名" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :タイトル%>
-    <%= f.text_field :title , autofocus: true, class: "form-control listName", placeholder: "リスト名" %>
-  </div>
+      <div class="field">
+        <div class="font-weight-bold mt-4">
+          説明
+          <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
+        </div>
+        <%= f.text_area :description , autofocus: true, class: "form-control listName mt-4", placeholder: "説明"%>
+      </div>
 
-  <div class="field">
-    <%= f.label :説明 %>
-    <%= f.text_area :description , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
-  </div>
+      <div class="field">
+        <div class="font-weight-bold mt-4">
+          開始時刻
+          <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+        </div>
+        <div class ="mt-4">
+          <%= f.datetime_select :start_date , autofocus: true, class: "form-control listName mt-4"%>
+        </div> 
+      </div>
 
-  <div class="field">
-    <%= f.label :開始時刻 %>
-    <%= f.datetime_select :start_date , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
-  </div>
+      <div class="field">
+        <div class="font-weight-bold mt-4">
+          終了時刻
+          <span class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+        </div>
+        <div class ="mt-4">
+          <%= f.datetime_select :end_date , autofocus: true, class: "form-control "%>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :終了時刻 %>
-    <%= f.datetime_select :end_date , autofocus: true, class: "form-control listName", placeholder: "リスト名"%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+      <div class="actions">
+        <%= f.submit "保存する", class: "submitBtn test-center" %>
+      </div>
+        <%= link_to '戻る', list_events_path, class: "submitBtn" %>
+    </div>
   </div>
 <% end %>

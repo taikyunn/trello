@@ -5,8 +5,4 @@ json.array!(@lists) do |list|
   json.url list_url(list, format: :html)
 end
 
-json.array!(@cards) do |card|
-  json.extract! card, :id, :title, :memo
-  json.start card.start_date
-  json.end card.end_date
-end
+
