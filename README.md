@@ -1,4 +1,5 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/taikyunn/trello)
+
 ## アプリ名
 trello
 
@@ -7,7 +8,7 @@ trello
 機能が充実している現代のサービスだからこそ、よりシンプルなサービスが求められていると考えました。
 タスク管理サービスtrelloをベースに作成しました。
 
-#＃開発ツールと機能一覧
+## 開発ツールと機能一覧
 
 # インフラ
 |名前       |備考                               |
@@ -27,17 +28,16 @@ trello
 |HTML, JavaScript, CSS  |フロントエンドの開発言語 |
 |Ruby on Rails          |使用フレームワーク       |
 |Linux                  |使用OS                   |
+|bootstrap              |CSSに使用                |
+|font-awesome            |CSSに使用                |
 
 # 機能一覧
 |名前                     |備考                           |
 |-------------------------|-------------------------------|
-|ログイン・ログアウト機能 |Dviseを使用                    |
+|ログイン・ログアウト機能 |Deviseを使用                    |
 |SNS認証機能              |FACEBOOK,TWITTER,GOOGLEで実装  |
 |メール認証機能           |セキュリティー面強化のため導入 |
 |リスト作成/編集/削除機能 |                               |
 |カード作成/編集/削除機能 |                               |
 |重要度機能               |Ratyを使用                     |
 |カレンダー機能           |full Calenderを使用            |
-
-
-
