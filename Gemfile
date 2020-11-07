@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4'
+gem 'mysql2', '>= 0.5.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -31,7 +31,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 4.0.0'
   gem 'factory_bot_rails'
   gem 'faker'
 end
@@ -44,6 +43,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
+  gem 'pry-rails'
+  # gem 'pry-byebug'
 end
 
 group :test do
@@ -52,6 +53,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rspec-rails'
+  gem "rspec_junit_formatter"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -64,11 +67,7 @@ gem 'devise'
 
 gem 'font-awesome-sass', '~> 5.9.0'
 
-gem 'pry-rails'
-
 gem 'rails-i18n'
-
-gem 'rspec-rails', '~> 4.0.0'
 
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
@@ -77,6 +76,9 @@ gem "omniauth-rails_csrf_protection"
 
 gem 'rack-attack'
 
+gem 'dotenv-rails'
+
 group :production do
   gem 'rails_12factor'
 end
+

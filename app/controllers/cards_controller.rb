@@ -33,18 +33,6 @@ class CardsController < ApplicationController
     @lists = List.where(user: current_user)
   end
 
-  def checked
-    # card = Card.find(params[id])
-    # if card.checked
-    #   card.update(checked: false)
-    # else
-    #   card.update(checked: true)
-    # end
-
-    # card = Card.find(params[:id])
-    # render json: {post: card}
-  end
-
   private
 
   def card_params

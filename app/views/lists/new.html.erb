@@ -4,33 +4,37 @@
   </header>
     <div class="container bg-white p-5 ">
       <h2 class="font-weight-bold text-center ">リスト情報を入力</h2>
-        <%= form_with model: @list, url: lists_path ,method: :post, class: "new_list", local: true do |f|%>
-        <div class="font-weight-bold ">
-          タイトル
-          <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
-        </div>
-          <%= f.text_field :title, autofocus: true, class: "form-control listName mt-4", placeholder: "リスト名（必須 10文字まで)" %>
-        <div class="font-weight-bold mt-3">
-          説明
-          <span  class = "bg-danger ml-2 mt-5 p-1 text-white font-weight-bold rounded" >必須</span>
-        </div>
-          <%= f.text_area :description, autofocus: true, class: "form-control listName mt-4", placeholder: "説明" %>
-        <div class="font-weight-bold mt-3">
-          開始時刻
-          <span  class = "bg-dark ml-2 mt-5 p-1 text-white font-weight-bold rounded" >任意</span>
-        </div>
-        <div class = "mt-3">
-          <%= f.datetime_select :start_date, include_blank: true, class: "form-control listName", placeholder: "開始時刻" %>
-        </div>
-        <div class="font-weight-bold mt-3">
-          終了時刻
-          <span  class = "bg-dark ml-2 mt-5 b-4 p-1 text-white font-weight-bold rounded" >任意</span>
-        </div>
-          <div class = "mt-3">
-            <%= f.datetime_select :end_date, include_blank: true, class: "form-control listName ", placeholder: "終了時刻" %>
+        <%= render 'shared/error_messages', model:@list %>
+          <%= form_with model: @list, url: lists_path ,method: :post, class: "new_list", local: true do |f|%>
+          <div class="font-weight-bold ">
+            タイトル
+            <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
           </div>
-          <div class="text-center"><%= f.submit "作成", class: "submitBtn" %></div>
-        <% end %>
+            <%= f.text_field :title, autofocus: true, class: "form-control listName mt-4", placeholder: "リスト名（必須 10文字まで)" %>
+          <div class="font-weight-bold mt-3">
+            説明
+            <span  class = "bg-danger ml-2 mt-5 p-1 text-white font-weight-bold rounded" >必須</span>
+          </div>
+            <%= f.text_area :description, autofocus: true, class: "form-control listName mt-4", placeholder: "説明" %>
+          <div class="font-weight-bold mt-3">
+            開始時刻
+            <span  class = "bg-dark ml-2 mt-5 p-1 text-white font-weight-bold rounded" >任意</span>
+          </div>
+          <div class = "mt-3">
+            <%= f.datetime_select :start_date, include_blank: true, class: "form-control listName", placeholder: "開始時刻" %>
+          </div>
+          <div class="font-weight-bold mt-3">
+            終了時刻
+            <span  class = "bg-dark ml-2 mt-5 b-4 p-1 text-white font-weight-bold rounded" >任意</span>
+          </div>
+            <div class = "mt-3">
+              <%= f.datetime_select :end_date, include_blank: true, class: "form-control listName ", placeholder: "終了時刻" %>
+            </div>
+            <div class="text-center">
+              <%= f.submit "作成する", class: "btn btn-success mt-4 w-50 text-white"%>
+              <%= link_to '戻る', lists_path(@list), class: "btn btn-primary mt-4 w-50 text-white" %>
+              </div>
+          <% end %>
     </div>
   </div>
 

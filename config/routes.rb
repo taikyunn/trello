@@ -6,10 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: :show
   root to: 'tops#index'
   resources :lists do
-    resources :cards
     member do
-      get 'checked', to: 'cards#checked'
+      get 'calender'
     end
-    resources :events
+    resources :cards
   end
 end

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="19" skipped="4" failures="0" errors="0" time="0.592986" timestamp="2020-11-07T03:59:09+00:00" hostname="9605966e91df">
+<properties>
+<property name="seed" value="48039"/>
+</properties>
+<testcase classname="spec.helpers.card_helper_spec" name="CardHelper add some examples to (or delete) /myapp/spec/helpers/card_helper_spec.rb" file="./spec/helpers/card_helper_spec.rb" time="0.000011"><skipped/></testcase>
+<testcase classname="spec.helpers.list_helper_spec" name="ListsHelper add some examples to (or delete) /myapp/spec/helpers/list_helper_spec.rb" file="./spec/helpers/list_helper_spec.rb" time="0.000008"><skipped/></testcase>
+<testcase classname="spec.helpers.users_helper_spec" name="UsersHelper add some examples to (or delete) /myapp/spec/helpers/users_helper_spec.rb" file="./spec/helpers/users_helper_spec.rb" time="0.000007"><skipped/></testcase>
+<testcase classname="spec.models.card_spec" name="Card List カード作成 カード作成がうまくいく時 全てがうまくいけば作成できる" file="./spec/models/card_spec.rb" time="0.304906"></testcase>
+<testcase classname="spec.models.card_spec" name="Card List カード作成 カード作成がうまくいかない時 titleが1~255文字でないと作成できない" file="./spec/models/card_spec.rb" time="0.026735"></testcase>
+<testcase classname="spec.models.card_spec" name="Card List カード作成 カード作成がうまくいかない時 memoが1~1000文字出ないと作成できない" file="./spec/models/card_spec.rb" time="0.025357"></testcase>
+<testcase classname="spec.models.list_spec" name="List List リスト作成 リスト作成がうまくいく時 全てがうまくいけば作成できる" file="./spec/models/list_spec.rb" time="0.019771"></testcase>
+<testcase classname="spec.models.list_spec" name="List List リスト作成 リスト作成がうまくいかない時 titleが空だと登録できない" file="./spec/models/list_spec.rb" time="0.021947"></testcase>
+<testcase classname="spec.models.list_spec" name="List List リスト作成 リスト作成がうまくいかない時 titileが10文字より多いと登録できない" file="./spec/models/list_spec.rb" time="0.027261"></testcase>
+<testcase classname="spec.models.sns_credential_spec" name="SnsCredential add some examples to (or delete) /myapp/spec/models/sns_credential_spec.rb" file="./spec/models/sns_credential_spec.rb" time="0.000010"><skipped/></testcase>
+<testcase classname="spec.models.user_spec" name="User User ユーザー新規登録 新規登録がうまく行く時 全てがうまくいけば登録できる" file="./spec/models/user_spec.rb" time="0.013927"></testcase>
+<testcase classname="spec.models.user_spec" name="User User ユーザー新規登録 新規登録がうまくいかない時 nicknameが空だと登録できない" file="./spec/models/user_spec.rb" time="0.015916"></testcase>
+<testcase classname="spec.models.user_spec" name="User User ユーザー新規登録 新規登録がうまくいかない時 emailが空だと登録できない" file="./spec/models/user_spec.rb" time="0.014095"></testcase>
+<testcase classname="spec.models.user_spec" name="User User ユーザー新規登録 新規登録がうまくいかない時 重複したemailが存在する場合登録できない" file="./spec/models/user_spec.rb" time="0.038400"></testcase>
+<testcase classname="spec.models.user_spec" name="User User ユーザー新規登録 新規登録がうまくいかない時 @がないと登録できない" file="./spec/models/user_spec.rb" time="0.010385"></testcase>
+<testcase classname="spec.models.user_spec" name="User User ユーザー新規登録 新規登録がうまくいかない時 passwordが空では登録できない" file="./spec/models/user_spec.rb" time="0.013437"></testcase>
+<testcase classname="spec.models.user_spec" name="User User ユーザー新規登録 新規登録がうまくいかない時 passwordが5文字以下では登録できない" file="./spec/models/user_spec.rb" time="0.016464"></testcase>
+<testcase classname="spec.models.user_spec" name="User User ユーザー新規登録 新規登録がうまくいかない時 passwordが半角英数字でなければ登録できない" file="./spec/models/user_spec.rb" time="0.011711"></testcase>
+<testcase classname="spec.models.user_spec" name="User User ユーザー新規登録 新規登録がうまくいかない時 passwordが存在していてもpassword_confirmationが空では登録できない" file="./spec/models/user_spec.rb" time="0.011479"></testcase>
+</testsuite>

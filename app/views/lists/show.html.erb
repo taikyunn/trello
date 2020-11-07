@@ -1,26 +1,32 @@
 <%= render "shared/header" %> 
-
-<p>
-  <strong>タイトル名:</strong>
-  <%= @list.title %>
-</p>
-
-<p>
-  <strong>説明:</strong>
-  <%= @list.description %>
-</p>
-
-<p>
-  <strong>開始時刻:</strong>
-  <%= @list.start_date %>
-</p>
-
-<p>
-  <strong>終了時刻:</strong>
-  <%= @list.end_date %>
-</p>
-
-<%= link_to 'カレンダーへ',list_events_path(@list.id) %>
-<%= link_to '編集する', edit_list_event_path(@list) %> 
-<%= link_to '削除する', list_event_path(@list.id), method: :delete %>
-<%= link_to '戻る', list_events_path(@list) %>
+<div class='carddetailPage '>
+  <div class="cardContents ">
+    <div class="container">
+      <div class="font-weight-bold ">
+        タイトル
+        <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
+      </div>
+      <div class= 'cardContents_title mt-4'><%= @list.title %></div>
+      <div class="font-weight-bold ">
+        説明
+        <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
+      </div>
+      <div class= 'cardContents_title mt-4'><%= @list.description %> </div>
+      <div class="font-weight-bold mt-4">
+        開始時刻
+        <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+      </div>
+      <div class= 'cardContents_title mt-4'><%= @list.start_date %></div>
+      <div class="font-weight-bold mt-4">
+        終了時刻
+        <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+      </div>
+      <div class= 'cardContents_title mt-4'><%= @list.end_date %></div>
+    </div>
+    <div class= 'text-center'>
+      <%= link_to 'カレンダーへ',calender_list_path(@list.id), class: "btn btn-info mt-4 w-50 text-white" %>
+      <%= link_to '編集する', edit_list_path(@list) , class: "btn btn-success mt-4 w-50 text-white" %>
+      <%= link_to '削除する',  list_path(@list.id), method: :delete , class: "btn btn-danger mt-4 w-50 text-white" %>
+    </div>
+  </div>
+</div>

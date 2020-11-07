@@ -4,6 +4,7 @@
       <h2 class="font-weight-bold text-center "><%= @list.title %></h2>
       <%= form_with model: @card, url: { action: :create }, html: { class: 'cardnewForm' }, local: true do |f| %>
         <%= f.hidden_field :list_id, value: @list.id %>
+         <%= render 'shared/error_messages', model:@card %>
         <% if @card.errors.any? %>
           <p class="text-danger">タイトルは1～255文字以内で入力してください</p>
         <% end %>
@@ -26,14 +27,14 @@
           <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
         </div>
         <div class = "mt-4">
-          <%= f.datetime_select :start_date, include_blank: true, class: "form-control mt-4", placeholder: "開始時刻" %>
+          <%= f.datetime_select :start_date, autofocus: true, class: "form-control listName ", placeholder: "開始時刻" %>
         </div>
         <div class="font-weight-bold mt-4">
           終了時刻
           <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
         </div>
         <div class = "mt-4">
-          <%= f.datetime_select :end_date,include_blank: true, class: "form-control", placeholder: "終了時刻" %>
+          <%= f.datetime_select :end_date, autofocus: true , class: "form-control listName", placeholder: "終了時刻" %>
         </div>
         <div class="font-weight-bold mt-4">
           重要度

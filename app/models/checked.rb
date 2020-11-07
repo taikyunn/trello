@@ -1,2 +1,0 @@
-class Checked < ApplicationRecord
-end
