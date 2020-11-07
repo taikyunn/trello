@@ -10,6 +10,5 @@ Rails.application.routes.draw do
       get 'calender'
     end
     resources :cards
-    resources :events
   end
 end
