@@ -30,7 +30,10 @@
             <div class = "mt-3">
               <%= f.datetime_select :end_date, include_blank: true, class: "form-control listName ", placeholder: "終了時刻" %>
             </div>
-            <div class="text-center"><%= f.submit "作成", class: "submitBtn" %></div>
+            <div class="text-center">
+              <%= f.submit "作成する", class: "btn btn-success mt-4 w-50 text-white"%>
+              <%= link_to '戻る', lists_path(@list), class: "btn btn-primary mt-4 w-50 text-white" %>
+              </div>
           <% end %>
     </div>
   </div>
