@@ -4,10 +4,6 @@ class EventsController < ApplicationController
   def index
     @lists = List.all
     @list = List.where(params[:list_id]).first
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    # end
   end
 
   def new
@@ -28,23 +24,16 @@ class EventsController < ApplicationController
   end
 
   def update
-    # respond_to do |format|
-    #   if @list.update(list_params)
-    #     format.html { redirect_to @list, notice: 'Event was successfully updated.' }
-    #     format.json { render :index, status: :ok, location: @list }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @list.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    if @list.update(list_params)
+      redirect_to root_path
+    else
+      render action: :edit
+    end
   end
 
   def destroy
-    # @list.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to action: :index, notice: 'Event was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
+    @list.destroy
+    redirect_to action: :index
   end
 
   private
