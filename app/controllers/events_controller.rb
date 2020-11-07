@@ -4,10 +4,10 @@ class EventsController < ApplicationController
   def index
     @lists = List.all
     @list = List.where(params[:list_id]).first
-    respond_to do |format|
-      format.html
-      format.json
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    # end
   end
 
   def new
@@ -16,14 +16,10 @@ class EventsController < ApplicationController
 
   def create
     @list = List.new(list_param)
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to @list, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @list }
-      else
-        format.html { render :new }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    if @list.save
+      render action: :index
+    else
+      render action: :new
     end
   end
 
@@ -32,24 +28,23 @@ class EventsController < ApplicationController
   end
 
   def update
-    binding.pry
-    respond_to do |format|
-      if @list.update(list_params)
-        format.html { redirect_to @list, notice: 'Event was successfully updated.' }
-        format.json { render :index, status: :ok, location: @list }
-      else
-        format.html { render :edit }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @list.update(list_params)
+    #     format.html { redirect_to @list, notice: 'Event was successfully updated.' }
+    #     format.json { render :index, status: :ok, location: @list }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @list.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   def destroy
-    @list.destroy
-    respond_to do |format|
-      format.html { redirect_to action: :index, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    # @list.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to action: :index, notice: 'Event was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

@@ -33,9 +33,8 @@ services:
       - db
     stdin_open: true
     tty: true
-    stdin_open: true
     volumes:
-      - .:/myapp
+    - .:/myapp
     env_file:
       - ./environments/sec.env
   nginx:

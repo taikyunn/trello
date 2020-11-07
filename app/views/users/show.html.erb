@@ -1,11 +1,32 @@
 <%= render "shared/header"%>
-<div class="contents row">
-  <p><%= @nickname %>さんのリスト一覧</p>
-  <% @lists.each do |list| %>
-      <p>タイトル：<%= list.title %></p>
-      <p>説明：<%= list.description %></p>
-      <p>開始日時：<%= list.start_date %></p>
-      <p>終了日時：<%= list.end_date %></p>
+<div class='carddetailPage '>
+  <div class="cardContents ">
+    <div class="container">
+      <%= @nickname %>さんのリスト一覧
+      <% @lists.each do |list| %>
+        <div class='container bg-white p-5'>
+          <div class="font-weight-bold ">
+            タイトル
+            <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
+          </div>
+          <div class= 'cardContents_title mt-4'><%= list.title %></div>
+          <div class="font-weight-bold ">
+            説明
+            <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
+          </div>
+          <div class= 'cardContents_title mt-4'><%= list.description %> </div>
+          <div class="font-weight-bold mt-4">
+            開始時刻
+            <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+          </div>
+          <div class= 'cardContents_title mt-4'><%= list.start_date %></div>
+          <div class="font-weight-bold mt-4">
+            終了時刻
+            <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+          </div>
+          <div class= 'cardContents_title mt-4'><%= list.end_date %></div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

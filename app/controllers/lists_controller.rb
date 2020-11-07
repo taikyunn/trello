@@ -10,6 +10,7 @@ class ListsController < ApplicationController
   end
 
   def create
+    binding.pry
     @list = List.new(list_params)
     if @list.save
       redirect_to root_path
@@ -18,14 +19,11 @@ class ListsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def update
     if @list.update(list_params)
       redirect_to root_path
     else
-      ender action: :edit
+      render action: :edit
     end
   end
 

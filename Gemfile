@@ -31,7 +31,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
 end
@@ -44,6 +43,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
+  gem 'pry-rails'
+  # gem 'pry-byebug'
 end
 
 group :test do
@@ -65,10 +66,6 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem 'font-awesome-sass', '~> 5.9.0'
-
-gem 'rspec-rails'
-
-gem 'pry-rails'
 
 gem 'rails-i18n'
 
