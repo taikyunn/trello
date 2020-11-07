@@ -32,6 +32,10 @@ class ListsController < ApplicationController
     redirect_to root_path
   end
 
+  def calender
+    @lists = List.all
+    @list = List.where(params[:list_id]).first
+  end
   private
 
   def list_params

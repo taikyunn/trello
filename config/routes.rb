@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: :show
   root to: 'tops#index'
   resources :lists do
+    member do
+      get 'calender'
+    end
     resources :cards
     resources :events
   end
