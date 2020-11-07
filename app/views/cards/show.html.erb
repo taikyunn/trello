@@ -15,10 +15,10 @@
         <div><%= @card.list.title %></div>
       </div>
         <%= render "shared/show" %>
-        <div class="cardContents_btnArea">
-        <%= link_to '編集する', edit_list_card_path(@card.list, @card), class: "edit_btn" %>
-        <%= link_to '削除する', list_card_path(@card.list, @card), class: "text-danger delete_btn", method: :delete, data: { confirm: "このカードを削除して大丈夫ですか?" } %>
-      </div>
+        <div class="text-center">
+          <%= link_to '編集する', edit_list_card_path(@card.list, @card) , class: "btn btn-success mt-4 w-50 text-white" %>
+          <%= link_to '削除する',  list_card_path(@card.list, @card), method: :delete, class: "btn btn-danger mt-4 w-50 text-white", data: { confirm: "このカードを削除して大丈夫ですか?" } %>
+        </div>
     </div>
   </div>
 </div>

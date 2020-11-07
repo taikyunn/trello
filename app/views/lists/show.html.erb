@@ -26,7 +26,7 @@
     <div class= 'text-center'>
       <%= link_to 'カレンダーへ',list_events_path(@list.id), class: "btn btn-info mt-4 w-50 text-white" %>
       <%= link_to '編集する', edit_list_event_path(@list) , class: "btn btn-success mt-4 w-50 text-white" %>
-      <%= link_to '削除する',  list_event_path(@list.id), method: :delete , class: "btn btn-danger mt-4 w-50 text-white" %><br>
+      <%= link_to '削除する',  list_event_path(@list.id), method: :delete , class: "btn btn-danger mt-4 w-50 text-white" %>
       <%= link_to '戻る', list_events_path(@list), class: "btn btn-primary mt-4 w-50 text-white" %>
     </div>
   </div>
