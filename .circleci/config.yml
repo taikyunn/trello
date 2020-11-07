@@ -64,40 +64,9 @@ jobs:
         destination: test-results
         
             # deploy
-  deploy:
-    docker:
-      - image: circleci/ruby:2.6.5-node&nbsp;
-    working_directory: /tmp/repo
-    steps:
-      - checkout
-      - run:
-          name: 'Install Heroku CLI, if necessary'
-          command: |
-            if [[ $(command -v heroku) == "" ]]; then
-              curl https://cli-assets.heroku.com/install.sh | sh
-            else
-              echo "Heroku is already installed. No operation was performed."
-            fi
-      - run:
-          name: heroku maintenance on
-          command: heroku maintenance:on --app ${HEROKU_APP_NAME}
-      - run:
-          name: Deploy to Heroku_Production
-          command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
-      - run:
-          name: heroku maintenance off
-          command: heroku maintenance:off --app ${HEROKU_APP_NAME}
- 
-workflows:
-  version: 2
-  build-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build # デプロイ前に必ずテストを行う
-          filters:
-            branches:
-              only:
-                - master # masterブランチが変更された場合のみデプロイを実行
+    - deploy:
+      name: Deploy Master to Heroku
+      command: |
+        if [ "${CIRCLE_BRANCH}" == "master" ]; then
+          git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+        fi
