@@ -110,16 +110,13 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.default_url_options = {host: 'trellotest-taichi.herokuapp.com' }
-  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  # mail setting
   config.action_mailer.smtp_settings = {
     address:  "smtp.gmail.com",
     domain: 'heroku.com',
     port: 587,
     user_name: "m82.ishii.taichi@gmail.com",
     password: "vhhbwlnyrzpxyuxa",
-    authentication: :plain,
     enable_starttls_auto: true
   }
 end
