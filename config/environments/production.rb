@@ -112,14 +112,14 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = {  host: 'https://trellotest-taichi.herokuapp.com', port: 3000 }
   # mail setting
-  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :user_name => "m82.ishii.taichi@gmail.com",
-    :password => "vhhbwlnyrzpxyuxa",
-    :authentication => :plain,
-    :enable_starttls_auto => true
+    address:  "smtp.gmail.com",
+    enable_starttls_auto: true,
+    port: 587,
+    user_name: "m82.ishii.taichi@gmail.com",
+    password: "vhhbwlnyrzpxyuxa",
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 end
