@@ -17,5 +17,6 @@ module Trello
     # the framework and any gems in your application.
     # security
     config.middleware.use Rack::Attack
+    config.assets.initialize_on_precompile = false
   end
 end
