@@ -77,8 +77,6 @@ gem 'rack-attack'
 
 gem 'dotenv-rails'
 
-gem 'fullcalendar-rails'
-
 group :production do
   gem 'rails_12factor'
 end
