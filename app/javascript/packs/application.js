@@ -9,10 +9,10 @@ require("@rails/activestorage").start()
 require("channels")
 require("../calendar")
 require("../drag")
+require('jquery')
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-require('jquery')
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

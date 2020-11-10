@@ -11,28 +11,23 @@ document.addEventListener('turbolinks:load', function() {
     locale: 'ja',
     height: 'auto',
     firstDay: 1,
-
-    
-    dayCellContent: function(e) {  
-      e.dayNumberText = e.dayNumberText.replace('日', '');  
-      },  
-      headerToolbar: {  
-        left: 'prev,next today',  
-        center: 'title',  
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'  
-        },  
-     
+    dayCellContent: function(e) {
+      e.dayNumberText = e.dayNumberText.replace('日', '');
+      },
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+        },
         events: 'events.json',
-        initialDate: new Date(),  
-        navLinks: true, 
-        businessHours: true, 
-        editable: true,  
-        selectable: true, 
+        initialDate: new Date(),
+        navLinks: true,
+        businessHours: true,
+        editable: true,
+        selectable: true,
         droppable: true,
-        
 
     plugins: [ dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin]
-    
   });
 
   calendar.render();
