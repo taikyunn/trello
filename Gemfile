@@ -44,7 +44,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
   gem 'pry-rails'
-  # gem 'pry-byebug'
+  gem 'sqlite3'
 end
 
 group :test do
@@ -77,6 +77,8 @@ gem "omniauth-rails_csrf_protection"
 gem 'rack-attack'
 
 gem 'dotenv-rails'
+
+gem 'fullcalendar-rails'
 
 group :production do
   gem 'rails_12factor'

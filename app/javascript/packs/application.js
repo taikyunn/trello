@@ -13,8 +13,6 @@ require("../drag")
 //= require popper
 //= require bootstrap-sprockets
 require('jquery')
-//= require jquery
-//= require moment
 //= require fullcalendar
 //= require fullcalendar/locale-all
 
