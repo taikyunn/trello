@@ -1,7 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     authorization
-   end
+  end
 
   def google_oauth2
     authorization
@@ -9,7 +9,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def twitter
     authorization
-   end
+  end
+
+  def failure
+    redirect_to root_path
+  end
 
   private
 
