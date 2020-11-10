@@ -44,7 +44,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
   gem 'pry-rails'
-  gem 'sqlite3'
 end
 
 group :test do
