@@ -109,17 +109,16 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.default_url_options = {:host =>  'https://www.trellotest-taichi.herokuapp.com' }
-  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :user_name      => 'apikey',
-    :password       => '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',
-    :domain => "heroku.com",
-    :address => "smtp.sendgrid.net",
-    :port => 587,
+  host = "#{ENV['HEROKU_APPNAME']}.herokuapp.com"
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.gmail.com',
+    :port           => '587',
     :authentication => :plain,
+    :user_name      => ENV['GMAIL_USERNAME'],
+    :password       => ENV['GMAIL_PASSWORD'],
+    :domain         => 'gmail.com',
     :enable_starttls_auto => true
   }
-
 end
