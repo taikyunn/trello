@@ -24,6 +24,10 @@
         <div class="form-group text-center">
           <%= f.submit "サインイン", class: "loginBtn" %>
         </div>
+        <div class = 'test text-center mb-4'>
+          テスト用Eメール：test@me.com
+          テスト用パスワード：aaa111
+        </div>
         <div class = "container btn btn-block btn-social bg-info  btn-facebook w-50 ">
           <span class = "fab fa-twitter "></span>
           <%= link_to 'twitterでログイン', user_twitter_omniauth_authorize_path, method: :post,  class: "text-light" %>
