@@ -48,8 +48,20 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: password
+  host: db
 production:
   <<: *default
-  database: myapp_production
-  username: trello
-  password: <%= ENV['TRELLO_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  # charset: utf8
+  # collation: utf8_general_ci
+  host: <%= ENV['DB_HOST'] %>
+  database: <%= ENV['DB_DATABASE'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
