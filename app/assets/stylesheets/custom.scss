@@ -18,12 +18,16 @@ body {
       position: relative;
       margin: 0;
       padding: 0;
-
+      justify-content: space-between;
       align-items: center;
+      &_left {
+        display: flex;
+        padding: 0;
+        align-items: center;
+      }
       li {
         list-style: none;
         color: #fff;
-        justify-content: space-around;
         a {
           color: #fff;
         }
@@ -40,7 +44,8 @@ body {
         display: flex;
         padding: 0;
         align-items: center;
-        justify-content: space-around;
+        margin: 0;
+        padding: 0;
         .listNew {
           &:after {
             font-family: "Font Awesome 5 Free";

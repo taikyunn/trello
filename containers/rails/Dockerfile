@@ -8,16 +8,17 @@ RUN apt-get update -qq && \
   vim \
   default-mysql-client
 
+RUN mkdir /app
 WORKDIR /app
 
 ADD Gemfile .
 ADD Gemfile.lock .
 RUN gem install bundler
-RUN bundle install -j4
-
+RUN bundle install
 ADD . /app
+RUN mkdir -p tmp/sockets
 
+VOLUME /app/public
+VOLUME /app/tmp
 
 EXPOSE 3000
-
-
