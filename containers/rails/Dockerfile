@@ -22,5 +22,3 @@ VOLUME /app/public
 VOLUME /app/tmp
 
 EXPOSE 3000
-
-
