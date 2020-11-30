@@ -22,7 +22,7 @@ trello
 |HEROKU     |AWSの練習用に使用                            |
 
 # デプロイ先
-|HEROKU |https://trello-test-3.herokuapp.com/|
+|HEROKU |https://trello-test-3.herokuapp.com|
 |AWS    |只今実装中です                      |
 
 # 言語とフレームワークなど
