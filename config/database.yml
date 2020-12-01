@@ -18,7 +18,7 @@ test:
   <<: *default
   database: trello_test
   # host: db
-  # host: 127.0.0.1
+  host: 127.0.0.1
 
 production:
   <<: *default
