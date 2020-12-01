@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers
-      - image: circleci/mysql:latest
     working_directory: ~/repo
     steps:
       - checkout
