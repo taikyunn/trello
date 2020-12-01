@@ -10,11 +10,13 @@ development:
   <<: *default
   database: trello_development
   # host: db
+  host: 127.0.0.1
 
 test:
   <<: *default
   database: trello_test
   # host: db
+  # host: 127.0.0.1
 
 production:
   <<: *default
