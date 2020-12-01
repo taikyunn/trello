@@ -4,12 +4,12 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV.fetch('MYSQL_USER') { 'root' } %>
   password: <%= ENV.fetch('MYSQL_PASSWORD') { 'password' } %>
-  host: db
+  # host: db
 
 development:
   <<: *default
   database: trello_development
-  # host: db
+  host: db
   # host: 127.0.0.1 ng
   # host: 127.0.0.1:3000ng
   # host: <%= ENV['DB_HOST'] %>
@@ -19,6 +19,7 @@ test:
   database: trello_test
   # host: db
   host: 127.0.0.1
+  port: 3306
 
 production:
   <<: *default
