@@ -9,14 +9,12 @@ default: &default
 development:
   <<: *default
   database: trello_development
-  username: <%= ENV.fetch('MYSQL_USER') { 'root' } %>
-  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'password' } %>
-  port: 3306
-  host: db
+  # host: db
 
 test:
   <<: *default
   database: trello_test
+  # host: db
 
 production:
   <<: *default
