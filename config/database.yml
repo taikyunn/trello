@@ -4,29 +4,20 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV.fetch('MYSQL_USER') { 'root' } %>
   password: <%= ENV.fetch('MYSQL_PASSWORD') { 'password' } %>
-  # host: db
+  host: db
 
 development:
   <<: *default
   database: trello_development
-  host: db
+  # host: db
 
 test:
   <<: *default
   database: trello_test
-  host: db
-
-# default: &default
-#   adapter: mysql2
-#   encoding: utf8
-#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#   username: root
-#   password: password
   # host: db
+
 production:
   <<: *default
-  # adapter: mysql2
-  # encoding: utf8
   host: <%= ENV['DB_HOST'] %>
   database: <%= ENV['DB_DATABASE'] %>
   username: <%= ENV['DB_USERNAME'] %>
