@@ -35,10 +35,11 @@ class ListsController < ApplicationController
     @lists = List.all
     @list = List.where(params[:list_id]).first
   end
+
   private
 
   def list_params
-    params.require(:list).permit(:title, :description, :start_date, :end_date).merge(user: current_user)
+    params.require(:list).permit(:title, :description, :start_date, :end_date ).merge(user: current_user)
   end
 
   def set_params
