@@ -42,11 +42,6 @@ jobs:
 
       # heroku deploy
       - deploy:
-        requires:
-            - test
-        filters:
-          branches:
-            only: master
         name: deploy-heroku-master
         command: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
