@@ -13,11 +13,7 @@ jobs:
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
       - run: yarn install
-          name: yarn install
-          command: yarn install
       - run: mv config/database.yml.ci config/database.yml
-          name: mv config/database.yml.ci config/database.yml
-          command: yarn install
       - run:
           name: docker-compose up --build -d
           command: docker-compose up --build -d
