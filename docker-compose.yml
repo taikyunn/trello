@@ -6,7 +6,8 @@ services:
     env_file:
       - ./environments/db.env
     volumes:
-      - db-data:/tmp/mysql.sock
+      # - db-data:/tmp/mysql.sock
+      - ./tmp/db:/var/lib/mysql/data
     cap_add:
       - SYS_NICE
 
