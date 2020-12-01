@@ -7,9 +7,9 @@ services:
       - ./environments/db.env
     volumes:
       # - db-data:/tmp/mysql.sock
-      # - ./tmp/db:/var/lib/mysql/data
-      - ./mysql_data:/var/lib/mysql
-      - ./conf/my.cnf:/etc/my.cnf
+      - ./tmp/db:/var/lib/mysql/data
+      # - ./mysql_data:/var/lib/mysql
+      # - ./conf/my.cnf:/etc/my.cnf
     ports:
       - 3306
     cap_add:
