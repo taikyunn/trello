@@ -73,7 +73,7 @@ workflows:
   build_and_push_image:
   jobs:
   - test
-    - aws-ecr/build_and_push_image:
+  - aws-ecr/build_and_push_image:
   name: web-build
     filters:
       branches:
