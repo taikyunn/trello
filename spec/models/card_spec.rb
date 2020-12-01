@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Card, type: :model do
   describe List do
     before do
-      @user= FactoryBot.create(:user)
+      @user = FactoryBot.create(:user)
       @list = FactoryBot.create(:list, user_id: @user.id)
       @card = FactoryBot.build(:card, list_id: @list.id)
     end
