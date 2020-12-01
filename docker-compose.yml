@@ -7,7 +7,7 @@ services:
       - ./environments/db.env
     volumes:
       - db-data:/tmp/mysql.sock
-      # - ./tmp/db:/var/lib/mysql/data
+      - ./tmp/db:/var/lib/mysql/data
     ports:
       - 3306
     cap_add:

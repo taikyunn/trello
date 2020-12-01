@@ -10,16 +10,11 @@ development:
   <<: *default
   database: trello_development
   host: db
-  # host: 127.0.0.1 ng
-  # host: 127.0.0.1:3000ng
-  # host: <%= ENV['DB_HOST'] %>
 
 test:
   <<: *default
   database: trello_test
-  # host: db
-  host: 127.0.0.1
-  port: 3306
+  host: db
 
 production:
   <<: *default
