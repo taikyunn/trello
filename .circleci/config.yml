@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers
-    working_directory: ~/repo
+    working_directory: ~/
     steps:
       - checkout
       - setup_remote_docker
@@ -17,7 +17,7 @@ jobs:
       - run:
           name: docker-compose up --build -d
           command: docker-compose up --build -d
-      - run: sleep 90
+      - run: sleep 30
       - run:
           name: docker-compose exec app rubocop
           command: docker-compose exec app rubocop
