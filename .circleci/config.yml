@@ -1,11 +1,9 @@
 version: 2.1
 jobs:
-  # test:
   build:
     machine:
       image: circleci/classic:edge
     working_directory: ~/repo
-    # working_directory: ~/app
     steps:
       - checkout
       - run:
@@ -70,14 +68,14 @@ orbs:
   aws-ecs: circleci/aws-ecs@0.0.8
 
 workflows:
-build_and_push_image:
-jobs:
-  - test
-  - aws-ecr/build_and_push_image:
-  name: web-build
-  filters:
-    branches:
-        only: master
+ build_and_push_image:
+  jobs:
+   - test
+   - aws-ecr/build_and_push_image:
+    name: web-build
+    filters:
+      branches:
+          only: master
     requires:
       - test
     account-url: AWS_ECR_ACCOUNT_URL
