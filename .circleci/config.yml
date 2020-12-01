@@ -72,48 +72,49 @@ orbs:
 workflows:
   build_and_push_image:
     jobs:
+    - test
     - aws-ecr/build_and_push_image:
-        name: web-build
-        filters:
-          branches:
-              only: master
-        requires:
-          - test
-        region: AWS_REGION
-        account-url: AWS_ECR_ACCOUNT_URL
-        create-repo: true
-        repo: 'trello-nginx'
-        tag: "${CIRCLE_SHA1}"
-        dockerfile: containers/nginx/Dockerfile
+      name: web-build
+      filters:
+        branches:
+            only: master
+      requires:
+        - test
+      region: AWS_REGION
+      account-url: AWS_ECR_ACCOUNT_URL
+      create-repo: true
+      repo: 'trello-nginx'
+      tag: "${CIRCLE_SHA1}"
+      dockerfile: containers/nginx/Dockerfile
 
     - aws-ecs/deploy-service-update:
-        name: web-deploy
-        requires:
-          - web-build
-        family: 'trello-task'
-        cluster-name: 'trello-cs-3'
-        service-name: '80'
-        container-image-name-updates: 'container=web,tag=${CIRCLE_SHA1}'
+      name: web-deploy
+      requires:
+        - web-build
+      family: 'trello-task'
+      cluster-name: 'trello-cs-3'
+      service-name: '80'
+      container-image-name-updates: 'container=web,tag=${CIRCLE_SHA1}'
 
     - aws-ecr/build-and-push-image:
-        name: app-build
-        filters:
-          branches:
-              only: master
-        requires:
-          - test
-        region: AWS_REGION
-        account-url: AWS_ECR_ACCOUNT_URL
-        create-repo: true
-        dockerfile: .
-        repo: 'trello-rails-new'
-        tag: "${CIRCLE_SHA1}"
+      name: app-build
+      filters:
+        branches:
+            only: master
+      requires:
+        - test
+      region: AWS_REGION
+      account-url: AWS_ECR_ACCOUNT_URL
+      create-repo: true
+      dockerfile: .
+      repo: 'trello-rails-new'
+      tag: "${CIRCLE_SHA1}"
 
     - aws-ecs/deploy-service-update:
-        name: app-deploy
-        requires:
-          - app-build
-        family: 'trello-task'
-        cluster-name: 'trello-cs-3'
-        service-name: '80'
-        container-image-name-updates: 'container=app,tag=${CIRCLE_SHA1}'
+      name: app-deploy
+      requires:
+        - app-build
+      family: 'trello-task'
+      cluster-name: 'trello-cs-3'
+      service-name: '80'
+      container-image-name-updates: 'container=app,tag=${CIRCLE_SHA1}'
