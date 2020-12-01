@@ -8,6 +8,7 @@ default: &default
 
 development:
   <<: *default
+  host: db
   database: trello_development
 
 test:
