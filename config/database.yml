@@ -60,8 +60,6 @@ production:
   <<: *default
   adapter: mysql2
   encoding: utf8
-  # charset: utf8
-  # collation: utf8_general_ci
   host: <%= ENV['DB_HOST'] %>
   database: <%= ENV['DB_DATABASE'] %>
   username: <%= ENV['DB_USERNAME'] %>
