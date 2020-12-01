@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/mysql:latest
+    - image: circleci/mysql:latest
     machine:
       image: circleci/classic:edge
     working_directory: ~/repo
