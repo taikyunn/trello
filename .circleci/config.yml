@@ -91,12 +91,12 @@ workflows:
                 only: master
           requires:
             - test
-            region: AWS_REGION
-            account-url: AWS_ECR_ACCOUNT_URL
-            create-repo: true
-            dockerfile: .
-            repo: 'trello-rails-new'
-            tag: "${CIRCLE_SHA1}"
+          region: AWS_REGION
+          account-url: AWS_ECR_ACCOUNT_URL
+          create-repo: true
+          dockerfile: .
+          repo: 'trello-rails-new'
+          tag: "${CIRCLE_SHA1}"
 
       - aws-ecs/deploy-service-update:
           name: app-deploy
