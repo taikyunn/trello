@@ -72,18 +72,18 @@ workflows:
   jobs:
    - test
    - aws-ecr/build_and_push_image:
-    name: web-build
-    filters:
-      branches:
-          only: master
-    requires:
-      - test
-    account-url: AWS_ECR_ACCOUNT_URL
-    create-repo: true
-    dockerfile: containers/nginx/Dockerfile
-    repo: 'trello-nginx'
-    region: AWS_REGION
-    tag: "${CIRCLE_SHA1}"
+      name: web-build
+      filters:
+        branches:
+            only: master
+      requires:
+        - test
+      account-url: AWS_ECR_ACCOUNT_URL
+      create-repo: true
+      dockerfile: containers/nginx/Dockerfile
+      repo: 'trello-nginx'
+      region: AWS_REGION
+      tag: "${CIRCLE_SHA1}"
 
  - aws-ecs/deploy-service-update:
   name: web-deploy
