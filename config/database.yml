@@ -12,7 +12,7 @@ development:
   # host: db
   # host: 127.0.0.1 ng
   # host: 127.0.0.1:3000ng
-  host: <%= ENV['DB_HOST'] %>
+  # host: <%= ENV['DB_HOST'] %>
 
 test:
   <<: *default
