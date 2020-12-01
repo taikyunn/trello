@@ -9,10 +9,12 @@ default: &default
 development:
   <<: *default
   database: trello_development
+  host: <%= ENV['MYSQL_ROOT_HOST'] || 'db' %>
 
 test:
   <<: *default
   database: trello_test
+  host: <%= ENV['MYSQL_ROOT_HOST'] || 'db' %>
 
 production:
   <<: *default
