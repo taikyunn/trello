@@ -80,12 +80,12 @@ workflows:
             only: master
       requires:
         - test
-      region: AWS_REGION
       account-url: AWS_ECR_ACCOUNT_URL
       create-repo: true
-      repo: 'trello-nginx'
-      tag: "${CIRCLE_SHA1}"
       dockerfile: containers/nginx/Dockerfile
+      repo: 'trello-nginx'
+      region: AWS_REGION
+      tag: "${CIRCLE_SHA1}"
 
     - aws-ecs/deploy-service-update:
       name: web-deploy
@@ -103,11 +103,11 @@ workflows:
             only: master
       requires:
         - test
-      region: AWS_REGION
       account-url: AWS_ECR_ACCOUNT_URL
       create-repo: true
       dockerfile: .
       repo: 'trello-rails-new'
+      region: AWS_REGION
       tag: "${CIRCLE_SHA1}"
 
     - aws-ecs/deploy-service-update:
