@@ -71,7 +71,7 @@ orbs:
 
 workflows:
 build_and_push_image:
-  jobs:
+jobs:
   - test
   - aws-ecr/build_and_push_image:
   name: web-build
@@ -87,7 +87,7 @@ build_and_push_image:
     region: AWS_REGION
     tag: "${CIRCLE_SHA1}"
 
-  - aws-ecs/deploy-service-update:
+ - aws-ecs/deploy-service-update:
   name: web-deploy
     requires:
       - web-build
