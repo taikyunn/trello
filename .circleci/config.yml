@@ -75,9 +75,9 @@ workflows:
   - test
   - aws-ecr/build_and_push_image:
   name: web-build
-    filters:
-      branches:
-          only: master
+  filters:
+    branches:
+        only: master
     requires:
       - test
     account-url: AWS_ECR_ACCOUNT_URL
