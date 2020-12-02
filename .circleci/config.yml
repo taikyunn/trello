@@ -46,14 +46,14 @@ orbs:
   workflows:
     build_and_push_image:
       jobs:
-      - test
+      - build
       - aws-ecr/build_and_push_image:
           name: web-build
           filters:
             branches:
                 only: master
           requires:
-            - test
+            - build
           account-url: AWS_ECR_ACCOUNT_URL
           create-repo: true
           dockerfile: containers/nginx/Dockerfile
@@ -76,7 +76,7 @@ orbs:
             branches:
                 only: master
           requires:
-            - test
+            - build
           account-url: AWS_ECR_ACCOUNT_URL
           create-repo: true
           dockerfile: .
