@@ -3,6 +3,8 @@ services:
   db:
     image: mysql:latest
     command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: password
     env_file:
       - ./environments/db.env
     volumes:
