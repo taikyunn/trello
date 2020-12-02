@@ -3,19 +3,19 @@ jobs:
   build:
     machine:
       image: circleci/classic:latest
-      # - image: circleci/ruby:2.6.5-node-browsers-legacy
-      #   environment:
-      #     RAILS_ENV: test
-      # - image: circleci/mysql:8.0
-      #   name: "db"
-      #   command: mysqld --default-authentication-plugin=mysql_native_password
-      #   env_file:
-      #     - ./environments/db.env
     working_directory: ~/repo
     steps:
       - checkout
-      # - setup_remote_docker
-      # - run: sleep 30
+            # Restore cache
+      # - restore_cache:
+      #     key: bundle-{{ checksum "Gemfile.lock" }}
+      # Install package
+      # - run: bundle install --path vendor/bundle
+      # Save cache
+      # - save_cache:
+      #     key: bundle-{{ checksum "Gemfile.lock" }}
+      #     paths:
+      #       - vendor/bundle
       - run:
           name: Install Docker Compose
           command: |
