@@ -1,7 +1,7 @@
-version: 2.1
+# version: 2.1
 # jobs:
-#   build:
-#     # test:
+#   # build:
+#   test:
 #     machine:
 #       image: circleci/classic:edge
 #     working_directory: ~/trello
@@ -39,56 +39,59 @@ version: 2.1
 #           name: docker-compose down
 #           command: docker-compose down
 
+version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@6.1.0
   aws-ecs: circleci/aws-ecs@0.0.8
 
-  workflows:
-    build_and_push_image:
-      jobs:
-        build:
-        - aws-ecr/build_and_push_image:
-            name: web-build
-            filters:
-              branches:
-                  only: master
-            # requires:
-            #   - build
-            account-url: AWS_ECR_ACCOUNT_URL
-            create-repo: true
-            dockerfile: containers/nginx/Dockerfile
-            repo: 'trello-nginx'
-            region: AWS_REGION
-            tag: "${CIRCLE_SHA1}"
+workflows:
+  build_and_push_image:
+  # test-and-deploy:
+  #   jobs:
+  #   - test
 
-        - aws-ecs/deploy-service-update:
-            name: web-deploy
-            requires:
-              - web-build
-            family: 'trello-task'
-            cluster-name: 'trello-cs-3'
-            service-name: '80'
-            container-image-name-updates: 'container=web,tag=${CIRCLE_SHA1}'
+    - aws-ecr/build_and_push_image:
+        name: web-build
+        filters:
+          branches:
+              only: master
+        # requires:
+        #   - test
+        account-url: AWS_ECR_ACCOUNT_URL
+        create-repo: true
+        dockerfile: containers/nginx/Dockerfile
+        repo: 'trello-nginx'
+        region: AWS_REGION
+        tag: "${CIRCLE_SHA1}"
 
-        - aws-ecr/build-and-push-image:
-            name: app-build
-            filters:
-              branches:
-                  only: master
-            # requires:
-            #   - build
-            account-url: AWS_ECR_ACCOUNT_URL
-            create-repo: true
-            dockerfile: .
-            repo: 'trello-rails-new'
-            region: AWS_REGION
-            tag: "${CIRCLE_SHA1}"
+    - aws-ecs/deploy-service-update:
+        name: web-deploy
+        # requires:
+        #   - web-build
+        family: 'trello-task'
+        cluster-name: 'trello-cs-3'
+        service-name: '80'
+        container-image-name-updates: 'container=web,tag=${CIRCLE_SHA1}'
 
-        - aws-ecs/deploy-service-update:
-            name: app-deploy
-            requires:
-              - app-build
-            family: 'trello-task'
-            cluster-name: 'trello-cs-3'
-            service-name: '80'
-            container-image-name-updates: 'container=app,tag=${CIRCLE_SHA1}'
+    - aws-ecr/build-and-push-image:
+        name: app-build
+        filters:
+          branches:
+              only: master
+        # requires:
+        #   - test
+        account-url: AWS_ECR_ACCOUNT_URL
+        create-repo: true
+        dockerfile: .
+        repo: 'trello-rails-new'
+        region: AWS_REGION
+        tag: "${CIRCLE_SHA1}"
+
+    - aws-ecs/deploy-service-update:
+        name: app-deploy
+        # requires:
+        #   - app-build
+        family: 'trello-task'
+        cluster-name: 'trello-cs-3'
+        service-name: '80'
+        container-image-name-updates: 'container=app,tag=${CIRCLE_SHA1}'
