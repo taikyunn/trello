@@ -8,8 +8,8 @@ jobs:
       - image: circleci/mysql:8.0
         name: "db"
         command: mysqld --default-authentication-plugin=mysql_native_password
-        env_file:
-          - ./environments/db.env
+        # env_file:
+        #   - ./environments/db.env
     working_directory: ~/trello
     steps:
       - checkout
