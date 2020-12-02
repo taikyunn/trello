@@ -16,7 +16,6 @@ development:
 test:
   <<: *default
   database: trello_test
-  host: 127.0.0.1
 
 production:
   <<: *default
