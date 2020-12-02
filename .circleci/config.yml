@@ -3,7 +3,7 @@ jobs:
   build:
   test:
     machine:
-      image: circleci/classic:latest
+      image: circleci/classic:edge
     working_directory: ~/repo
     steps:
       - checkout
