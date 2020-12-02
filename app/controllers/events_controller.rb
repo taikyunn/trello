@@ -19,10 +19,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def show
-    list = List.where(params[:id])
-  end
-
   def update
     if @list.update(list_params)
       redirect_to root_path

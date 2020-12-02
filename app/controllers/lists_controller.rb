@@ -35,6 +35,7 @@ class ListsController < ApplicationController
     @lists = List.all
     @list = List.where(params[:list_id]).first
   end
+
   private
 
   def list_params
