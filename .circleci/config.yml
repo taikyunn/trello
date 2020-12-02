@@ -6,10 +6,10 @@ jobs:
         # environment:
         #   RAILS_ENV: test
         #   DB_HOST: 127.0.0.1
-      - image: circleci/mysql:5.7
-        environment:
-          MYSQL_USER: root
-          MYSQL_ROOT_PASSWORD: ramadan
+      # - image: circleci/mysql:latest
+      #   environment:
+      #     MYSQL_USER: root
+      #     MYSQL_ROOT_PASSWORD: ramadan
     working_directory: ~/app
     steps:
       - checkout
