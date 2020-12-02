@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   build:
-  test:
+    test:
     machine:
       image: circleci/classic:edge
     working_directory: ~/repo
