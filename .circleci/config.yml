@@ -10,7 +10,7 @@ jobs:
         environment:
           MYSQL_USER: root
           MYSQL_ROOT_PASSWORD: ramadan
-    working_directory: ~/repo
+    working_directory: ~/trello
     steps:
       - checkout
       - setup_remote_docker
