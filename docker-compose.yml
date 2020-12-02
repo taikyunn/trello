@@ -11,8 +11,8 @@ services:
     # env_file:
     #   - ./environments/db.env
     volumes:
-      # - db-data:/tmp/mysql.sock
-      - ./tmp/db:/var/lib/mysql/data
+      - db-data:/tmp/mysql.sock
+      # - ./tmp/db:/var/lib/mysql/data
       # - ./mysql_data:/var/lib/mysql
       # - ./conf/my.cnf:/etc/my.cnf
     ports:
@@ -50,4 +50,3 @@ volumes:
   tmp-data:
   log-data:
   db-data:
-  
