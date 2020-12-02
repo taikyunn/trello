@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: trello_development
+  database: repo_development
 
 test:
   <<: *default
