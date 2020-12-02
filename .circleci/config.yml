@@ -39,8 +39,6 @@ jobs:
           name: docker-compose down
           command: docker-compose down
   deploy:
-    machine:
-      image: circleci/classic:edge
     steps:
       - checkout
       - run:
@@ -117,4 +115,3 @@ build_and_push_image:
       cluster-name: 'trello-cs-3'
       service-name: '80'
       container-image-name-updates: 'container=app,tag=${CIRCLE_SHA1}'
-      
