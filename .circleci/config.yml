@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   build:
-    test:
+    # test:
     machine:
       image: circleci/classic:edge
     working_directory: ~/trello
@@ -38,7 +38,9 @@ jobs:
       - run:
           name: docker-compose down
           command: docker-compose down
-    deploy:
+  deploy:
+    machine:
+      image: circleci/classic:edge
     steps:
       - checkout
       - run:
@@ -61,6 +63,18 @@ jobs:
       - run:
           name: heroku maintenance off
           command: heroku maintenance:off --app ${HEROKU_APP_NAME}
+workflows:
+  version: 2.1
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
 
 orbs:
   aws-ecr: circleci/aws-ecr@6.1.0
