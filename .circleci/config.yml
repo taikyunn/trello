@@ -20,12 +20,12 @@ jobs:
       - run:
           name: docker-compose exec app rubocop
           command: docker-compose exec app rubocop
-      - run:
-          name: docker-compose run app rails db:create 
-          command: docker-compose run app rails db:create 
-      - run:
-          name: docker-compose exec app rails db:migrate
-          command: docker-compose exec app rails db:migrate
+      # - run:
+      #     name: docker-compose run app rails db:create
+      #     command: docker-compose run app rails db:create
+      # - run:
+      #     name: docker-compose exec app rails db:migrate
+      #     command: docker-compose exec app rails db:migrate
       - run:
           name: docker-compose exec app bash -c "yes n | rails webpacker:install"
           command: docker-compose exec app bash -c "yes n | rails webpacker:install"
