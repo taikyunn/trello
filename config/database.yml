@@ -16,7 +16,7 @@ development:
 test:
   <<: *default
   database: trello_test
-  # port: 3306
+  host: 127.0.0.1
 
 production:
   <<: *default

@@ -7,16 +7,6 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-            # Restore cache
-      # - restore_cache:
-      #     key: bundle-{{ checksum "Gemfile.lock" }}
-      # Install package
-      # - run: bundle install --path vendor/bundle
-      # Save cache
-      # - save_cache:
-      #     key: bundle-{{ checksum "Gemfile.lock" }}
-      #     paths:
-      #       - vendor/bundle
       - run:
           name: Install Docker Compose
           command: |
