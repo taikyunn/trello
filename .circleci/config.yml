@@ -38,7 +38,7 @@ jobs:
       - run:
           name: docker-compose down
           command: docker-compose down
-  deploy:
+    deploy:
     steps:
       - checkout
       - run:
