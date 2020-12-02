@@ -5,14 +5,14 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: password
       # MYSQL_DATABASE: trello
     # env_file:
     #   - ./environments/db.env
     volumes:
-      # - db-data:/tmp/mysql.sock
-      - ./tmp/db:/var/lib/mysql/data
+      - db-data:/tmp/mysql.sock
+      # - ./tmp/db:/var/lib/mysql/data
       # - ./mysql_data:/var/lib/mysql
       # - ./conf/my.cnf:/etc/my.cnf
     ports:
