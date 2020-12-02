@@ -38,7 +38,14 @@ jobs:
       - run:
           name: docker-compose down
           command: docker-compose down
-
+jobs:
+  test:
+    machine:
+      image: circleci/classic:edge
+    working_directory: ~/trello
+    steps:
+      - checkout
+      
 orbs:
   aws-ecr: circleci/aws-ecr@6.1.0
   aws-ecs: circleci/aws-ecs@0.0.8
