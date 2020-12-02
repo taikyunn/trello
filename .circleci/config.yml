@@ -3,14 +3,14 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers-legacy
-        environment:
-          RAILS_ENV: test
-          DB_HOST: 127.0.0.1
-      - image: circleci/mysql:8.0
-        environment:
-          MYSQL_USER: root
-          MYSQL_ROOT_PASSWORD: ramadan
-    working_directory: ~/trello
+        # environment:
+        #   RAILS_ENV: test
+        #   DB_HOST: 127.0.0.1
+      - image: circleci/mysql:5.7
+        # environment:
+        #   MYSQL_USER: root
+        #   MYSQL_ROOT_PASSWORD: ramadan
+    # working_directory: ~/trello
     steps:
       - checkout
       - setup_remote_docker
