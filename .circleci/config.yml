@@ -43,8 +43,8 @@ orbs:
   aws-ecr: circleci/aws-ecr@6.15.0
   aws-ecs: circleci/aws-ecs@1.4.0
 workflows:
-  build_and_push_image:
-  # test-and-deploy:
+  # build_and_push_image:
+  test-and-deploy:
     jobs:
       # - test
       - aws-ecr/build_and_push_image:
