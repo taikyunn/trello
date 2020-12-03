@@ -39,9 +39,9 @@ jobs:
           name: docker-compose down
           command: docker-compose down
 
-orbs:
-  aws-ecr: circleci/aws-ecr@6.15.0
-  aws-ecs: circleci/aws-ecs@1.4.0
+  orbs:
+    aws-ecr: circleci/aws-ecr@6.15.0
+    aws-ecs: circleci/aws-ecs@1.4.0
 
 workflows:
     build_and_push_image:
