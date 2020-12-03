@@ -1,102 +1,102 @@
-# version: 2.1
-# jobs:
-#   # build:
-#   test:
-#     machine:
-#       image: circleci/classic:edge
-#     working_directory: ~/trello
-#     steps:
-#       - checkout
-#       - run:
-#           name: Install Docker Compose
-#           command: |
-#             curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-Linux-x86_64 > ~/docker-compose
-#             chmod +x ~/docker-compose
-#             sudo mv ~/docker-compose /usr/local/bin/docker-compose
-#       - run:
-#           name: docker-compose up --build -d
-#           command: docker-compose up --build -d
-#       - run: sleep 30
-#       - run:
-#           name: docker-compose exec app rubocop
-#           command: docker-compose exec app rubocop
-#       - run:
-#           name: docker-compose exec app rails db:create
-#           command: docker-compose exec app rails db:create
-#       - run:
-#           name: docker-compose exec app rails db:migrate
-#           command: docker-compose exec app rails db:migrate
-#       - run:
-#           name: docker-compose exec app bash -c "yes n | rails webpacker:install"
-#           command: docker-compose exec app bash -c "yes n | rails webpacker:install"
-#       - run:
-#           name: docker-compose exec app rails webpacker:compile RAILS_ENV=test
-#           command: docker-compose exec app rails webpacker:compile RAILS_ENV=test
-#       - run:
-#           name: docker-compose exec app rspec
-#           command: docker-compose exec app rspec
-#       - run:
-#           name: docker-compose down
-#           command: docker-compose down
-
-# orbs:
-#   aws-ecr: circleci/aws-ecr@6.15.0
-#   aws-ecs: circleci/aws-ecs@1.4.0
-# workflows:
-#   # build_and_push_image:
-#   build-and-deploy:
-#     jobs:
-#       - test
-#       - aws-ecr/build_and_push_image:
-#           name: web-build
-#           filters:
-#             branches:
-#                 only: master
-#           requires:
-#             - test
-#           account-url: AWS_ECR_ACCOUNT_URL
-#           create-repo: true
-#           dockerfile: containers/nginx/Dockerfile
-#           repo: 'trello-nginx'
-#           region: AWS_REGION
-#           tag: "${CIRCLE_SHA1}"
-
-#       - aws-ecs/deploy-service-update:
-#           name: web-deploy
-#           requires:
-#             - web-build
-#           family: 'trello-task'
-#           cluster-name: 'trello-cs-3'
-#           service-name: '80'
-#           container-image-name-updates: 'container=web,tag=${CIRCLE_SHA1}'
-
-#       - aws-ecr/build-and-push-image:
-#           name: app-build
-#           filters:
-#             branches:
-#                 only: master
-#           requires:
-#             - test
-#           account-url: AWS_ECR_ACCOUNT_URL
-#           create-repo: true
-#           dockerfile: .
-#           repo: 'trello-rails-new'
-#           region: AWS_REGION
-#           tag: "${CIRCLE_SHA1}"
-
-#       - aws-ecs/deploy-service-update:
-#           name: app-deploy
-#           requires:
-#             - app-build
-#           family: 'trello-task'
-#           cluster-name: 'trello-cs-3'
-#           service-name: '80'
-#           container-image-name-updates: 'container=app,tag=${CIRCLE_SHA1}'
-
 version: 2.1
+jobs:
+  # build:
+  test:
+    machine:
+      image: circleci/classic:edge
+    working_directory: ~/trello
+    steps:
+      - checkout
+      - run:
+          name: Install Docker Compose
+          command: |
+            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-Linux-x86_64 > ~/docker-compose
+            chmod +x ~/docker-compose
+            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+      - run:
+          name: docker-compose up --build -d
+          command: docker-compose up --build -d
+      - run: sleep 30
+      - run:
+          name: docker-compose exec app rubocop
+          command: docker-compose exec app rubocop
+      - run:
+          name: docker-compose exec app rails db:create
+          command: docker-compose exec app rails db:create
+      - run:
+          name: docker-compose exec app rails db:migrate
+          command: docker-compose exec app rails db:migrate
+      - run:
+          name: docker-compose exec app bash -c "yes n | rails webpacker:install"
+          command: docker-compose exec app bash -c "yes n | rails webpacker:install"
+      - run:
+          name: docker-compose exec app rails webpacker:compile RAILS_ENV=test
+          command: docker-compose exec app rails webpacker:compile RAILS_ENV=test
+      - run:
+          name: docker-compose exec app rspec
+          command: docker-compose exec app rspec
+      - run:
+          name: docker-compose down
+          command: docker-compose down
+
 orbs:
-    hello: circleci/hello-build@0.0.5
+    aws-ecr: circleci/aws-ecr@6.15.0
+    aws-ecs: circleci/aws-ecs@1.4.0
 workflows:
-    "Hello Workflow":
-        jobs:
-          - hello/hello-build
+  # build_and_push_image:
+  build-and-deploy:
+    jobs:
+      - test
+      - aws-ecr/build_and_push_image:
+          name: web-build
+          filters:
+            branches:
+                only: master
+          requires:
+            - test
+          account-url: AWS_ECR_ACCOUNT_URL
+          create-repo: true
+          dockerfile: containers/nginx/Dockerfile
+          repo: 'trello-nginx'
+          region: AWS_REGION
+          tag: "${CIRCLE_SHA1}"
+
+      - aws-ecs/deploy-service-update:
+          name: web-deploy
+          requires:
+            - web-build
+          family: 'trello-task'
+          cluster-name: 'trello-cs-3'
+          service-name: '80'
+          container-image-name-updates: 'container=web,tag=${CIRCLE_SHA1}'
+
+      - aws-ecr/build-and-push-image:
+          name: app-build
+          filters:
+            branches:
+                only: master
+          requires:
+            - test
+          account-url: AWS_ECR_ACCOUNT_URL
+          create-repo: true
+          dockerfile: .
+          repo: 'trello-rails-new'
+          region: AWS_REGION
+          tag: "${CIRCLE_SHA1}"
+
+      - aws-ecs/deploy-service-update:
+          name: app-deploy
+          requires:
+            - app-build
+          family: 'trello-task'
+          cluster-name: 'trello-cs-3'
+          service-name: '80'
+          container-image-name-updates: 'container=app,tag=${CIRCLE_SHA1}'
+
+# version: 2.1
+# orbs:
+#     hello: circleci/hello-build@0.0.5
+# workflows:
+#     "Hello Workflow":
+#         jobs:
+#           - hello/hello-build
