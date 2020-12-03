@@ -90,11 +90,3 @@ jobs:
 #             cluster-name: 'trello-cs-3'
 #             service-name: '80'
 #             container-image-name-updates: 'container=app,tag=${CIRCLE_SHA1}'
-
-# version: 2.1
-# orbs:
-#     hello: circleci/hello-build@0.0.5
-# workflows:
-#     "Hello Workflow":
-#         jobs:
-#           - hello/hello-build

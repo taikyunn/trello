@@ -7,6 +7,7 @@ trello
 シンプルで使いやすい、タスク管理サービス。
 機能が充実している現代のサービスだからこそ、よりシンプルなサービスが求められていると考えました。
 タスク管理サービスtrelloをベースに作成しました。
+現在AWSデバック作業を行っております。見えないページが多いので、herokuで確認していただけると幸いです。
 
 ## 開発ツールと機能一覧
 
@@ -14,16 +15,23 @@ trello
 |名前       |備考                                         |
 |-----------|---------------------------------------------|
 |Docker     |コンテナ運用のため                           |
-|Circle Ci  |自動テスト・自動デプロイ実装のため           |
+|Circle Ci  |自動テスト・自動デプロイ(実装中)実装のため   |
 |puma       |アプリケーションサーバーに使用               |
 |nginx      |webサーバーに使用                            |
 |rubocop    |Lintツール使用                               |
-|AWS        |ECS,ECRを使用                                |
+|AWS        |デプロイツール                               |
+|ECR        |Dockerリポジトリに使用                       |
+|ECS        |デプロイ                                     |
+|EC2        |                                             |
+|RDS        |データベースに使用                           |
+|ACM        |HTTPS化（実装中）                            |
+|ALB        |ロードバランサー                             |
 |HEROKU     |AWSの練習用に使用                            |
 
 # デプロイ先
-|HEROKU |https://trello-test-3.herokuapp.com|
-|AWS    |只今実装中です                      |
+|HEROKU |https://trello-test-3.herokuapp.com
+|AWS    |trello-lb-424772846.ap-northeast-1.elb.amazonaws.com.users/sign_in                      |
+（現在デバック作業中で開けないページが多いです。申し訳ございません。）
 
 # 言語とフレームワークなど
 
