@@ -1,7 +1,12 @@
 version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@1.2.1
+  aws-ecr: circleci/aws-ecr@6.15.0
+  aws-ecs: circleci/aws-ecs@1.4.0
+
 jobs:
-  # build:
-  test:
+  build:
     machine:
       image: circleci/classic:edge
     working_directory: ~/trello
@@ -38,10 +43,16 @@ jobs:
       - run:
           name: docker-compose down
           command: docker-compose down
+      - persist_to_workspace:
+          root: . # workspaceのrootパス（絶対パスかworking_directoryからの相対パス）
+          paths:
+            - . # 共有するパス（絶対パスかrootからの相対パス）
 
-# orbs:
-#   aws-ecr: circleci/aws-ecr@6.15.0
-#   aws-ecs: circleci/aws-ecs@1.4.0
+  test:
+    machine:
+      image: circleci/classic:edge
+    working_directory: ~/trello
+
 
 # workflows:
 #     build_and_push_image:
