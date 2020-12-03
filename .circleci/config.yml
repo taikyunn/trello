@@ -1,7 +1,7 @@
 version: 2.1
+
 jobs:
   build:
-    test:
     machine:
       image: circleci/classic:edge
     working_directory: ~/trello
@@ -38,83 +38,55 @@ jobs:
       - run:
           name: docker-compose down
           command: docker-compose down
-  deploy:
-    machine:
-      image: circleci/classic:edge
-    steps:
-      - checkout
-      - run:
-          name: "build docker image"
-          command: docker build --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web .
-      - run:
-          name: setup heroku command
-          command: bash .circleci/setup_heroku.sh
-      - run:
-          name: heroku maintenance on
-          command: heroku maintenance:on --app ${HEROKU_APP_NAME}
-      - run:
-          name: "push container to registry.heroku.com"
-          command: |
-            docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
-            docker push registry.heroku.com/${HEROKU_APP_NAME}/web
-      - run:
-          name: heroku db migrate
-          command: heroku run rails db:migrate --app ${HEROKU_APP_NAME}
-      - run:
-          name: heroku maintenance off
-          command: heroku maintenance:off --app ${HEROKU_APP_NAME}
 
-orbs:
-  aws-ecr: circleci/aws-ecr@6.1.0
-  aws-ecs: circleci/aws-ecs@0.0.8
 
-workflows:
-build_and_push_image:
-  jobs:
-   - test
-   - aws-ecr/build_and_push_image:
-      name: web-build
-      filters:
-        branches:
-            only: master
-      requires:
-        - test
-      account-url: AWS_ECR_ACCOUNT_URL
-      create-repo: true
-      dockerfile: containers/nginx/Dockerfile
-      repo: 'trello-nginx'
-      region: AWS_REGION
-      tag: "${CIRCLE_SHA1}"
+# workflows:
+#     build_and_push_image:
+#     # "build-and-deploy":
+#       jobs:
+#         - test
+#         - aws-ecr/build_and_push_image:
+#             name: web-build
+#             filters:
+#               branches:
+#                   only: master
+#             requires:
+#               - test
+#             account-url: AWS_ECR_ACCOUNT_URL
+#             create-repo: true
+#             dockerfile: containers/nginx/Dockerfile
+#             repo: 'trello-nginx'
+#             region: AWS_REGION
+#             tag: "${CIRCLE_SHA1}"
 
-   - aws-ecs/deploy-service-update:
-      name: web-deploy
-      requires:
-        - web-build
-      family: 'trello-task'
-      cluster-name: 'trello-cs-3'
-      service-name: '80'
-      container-image-name-updates: 'container=web,tag=${CIRCLE_SHA1}'
+#         - aws-ecs/deploy-service-update:
+#             name: web-deploy
+#             requires:
+#               - web-build
+#             family: 'trello-task'
+#             cluster-name: 'trello-cs-3'
+#             service-name: '80'
+#             container-image-name-updates: 'container=web,tag=${CIRCLE_SHA1}'
 
-   - aws-ecr/build-and-push-image:
-      name: app-build
-      filters:
-        branches:
-            only: master
-      requires:
-        - test
-      account-url: AWS_ECR_ACCOUNT_URL
-      create-repo: true
-      dockerfile: .
-      repo: 'trello-rails-new'
-      region: AWS_REGION
-      tag: "${CIRCLE_SHA1}"
+#         - aws-ecr/build-and-push-image:
+#             name: app-build
+#             filters:
+#               branches:
+#                   only: master
+#             requires:
+#               - test
+#             account-url: AWS_ECR_ACCOUNT_URL
+#             create-repo: true
+#             dockerfile: .
+#             repo: 'trello-rails-new'
+#             region: AWS_REGION
+#             tag: "${CIRCLE_SHA1}"
 
-   - aws-ecs/deploy-service-update:
-      name: app-deploy
-      requires:
-        - app-build
-      family: 'trello-task'
-      cluster-name: 'trello-cs-3'
-      service-name: '80'
-      container-image-name-updates: 'container=app,tag=${CIRCLE_SHA1}'
-      
+#         - aws-ecs/deploy-service-update:
+#             name: app-deploy
+#             requires:
+#               - app-build
+#             family: 'trello-task'
+#             cluster-name: 'trello-cs-3'
+#             service-name: '80'
+#             container-image-name-updates: 'container=app,tag=${CIRCLE_SHA1}'
