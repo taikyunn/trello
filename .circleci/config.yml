@@ -40,14 +40,14 @@ version: 2.1
 #           command: docker-compose down
 
 orbs:
-  ecr: circleci/aws-ecr@6.1.0
-  ecs: circleci/aws-ecs@0.0.8
+  aws-ecr: circleci/aws-ecr@6.15.0
+  aws-ecs: circleci/aws-ecs@1.4.0
 workflows:
   build_and_push_image:
   # test-and-deploy:
     jobs:
       # - test
-      - ecr/build_and_push_image:
+      - aws-ecr/build_and_push_image:
           name: web-build
           filters:
             branches:
@@ -61,7 +61,7 @@ workflows:
           region: AWS_REGION
           tag: "${CIRCLE_SHA1}"
 
-      - ecs/deploy-service-update:
+      - aws-ecs/deploy-service-update:
           name: web-deploy
           requires:
             - web-build
@@ -70,7 +70,7 @@ workflows:
           service-name: '80'
           container-image-name-updates: 'container=web,tag=${CIRCLE_SHA1}'
 
-      - ecr/build-and-push-image:
+      - aws-ecr/build-and-push-image:
           name: app-build
           filters:
             branches:
@@ -84,7 +84,7 @@ workflows:
           region: AWS_REGION
           tag: "${CIRCLE_SHA1}"
 
-      - ecs/deploy-service-update:
+      - aws-ecs/deploy-service-update:
           name: app-deploy
           requires:
             - app-build
