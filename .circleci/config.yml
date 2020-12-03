@@ -72,18 +72,18 @@ workflows:
             container-image-name-updates: 'container=web,tag=${CIRCLE_SHA1}'
 
         - aws-ecr/build-and-push-image:
-            # name: app-build
-            # filters:
-            #   branches:
-            #       only: master
-            # requires:
-            #   - test
-            # account-url: AWS_ECR_ACCOUNT_URL
-            # create-repo: true
-            # dockerfile: .
-            # repo: 'trello-rails-new'
-            # region: AWS_REGION
-            # tag: "${CIRCLE_SHA1}"
+            name: app-build
+            filters:
+              branches:
+                  only: master
+            requires:
+              - test
+            account-url: AWS_ECR_ACCOUNT_URL
+            create-repo: true
+            dockerfile: .
+            repo: 'trello-rails-new'
+            region: AWS_REGION
+            tag: "${CIRCLE_SHA1}"
 
         - aws-ecs/deploy-service-update:
             name: app-deploy
