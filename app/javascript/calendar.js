@@ -19,7 +19,7 @@ document.addEventListener('turbolinks:load', function() {
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
         },
-        events: 'events.json',
+        // events: 'events.json',
         initialDate: new Date(),
         navLinks: true,
         businessHours: true,
