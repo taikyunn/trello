@@ -7,7 +7,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
     volumes:
       # - db-data:/tmp/mysql.sock
-      - db-data:/var/lib/mysql
+      # - db-data:/var/lib/mysql
     ports:
       - 3306
     cap_add:
@@ -40,5 +40,5 @@ services:
       - app
 volumes:
 
-  db-data:
+  # db-data:
 
