@@ -24,4 +24,5 @@ production:
   <<: *default
   database: trello_production
   username: root
+  password: password
   socket: /var/lib/mysql/mysql.sock
