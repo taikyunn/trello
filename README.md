@@ -16,17 +16,20 @@ trello
 |-----------|---------------------------------------------|
 |Docker     |コンテナ運用のため                           |
 |Circle Ci  |自動テスト・自動デプロイ(実装中)実装のため   |
-|puma       |アプリケーションサーバーに使用               |
-|nginx      |webサーバーに使用                            |
+|puma       |アプリケーションサーバーに使用(ローカル/ECS) |
+|unicorn    |アプリケーションサーバーに使用(EC2)          |
+|nginx      |webサーバーに使用(ローカル/ECS)              |
 |rubocop    |Lintツール使用                               |
 |AWS        |デプロイツール                               |
 |ECR        |Dockerリポジトリに使用                       |
-|ECS        |デプロイ                                     |
-|EC2        |                                             |
-|RDS        |データベースに使用                           |
+|ECS        |デプロイ時に使用                             |
+|EC2        |デプロイ時に使用                             |
+|RDS        |データベースに使用（ECSデプロイ時）          |
 |ACM        |HTTPS化（実装中）                            |
-|ALB        |ロードバランサー                             |
+|ALB        |ロードバランサーのH                          |
 |HEROKU     |AWSの練習用に使用                            |
+|mysql      |開発環境のDB                                 |
+|mariaDB    |EC2デプロイ時のデータベース                  |
 
 # デプロイ先
 |HEROKU |https://trello-test-3.herokuapp.com
@@ -36,14 +39,15 @@ trello
 
 # 言語とフレームワークなど
 
-|名前                   |備考                             |
-|-----------------------|---------------------------------|
-|Ruby                   |サーバーサイドの開発言語         |
-|HTML, JavaScript, CSS  |フロントエンドの開発言語         |
-|Ruby on Rails          |使用フレームワーク               |
-|Linux                  |使用OS                           |
-|bootstrap              |CSSに使用                        |
-|font-awesome           |CSSに使用                        |
+|名前                   |備考                              |
+|-----------------------|----------------------------------|
+|Ruby                   |サーバーサイドの開発言語 ver:2.6.5|
+|rails                  |フレームワーク ver:6.0.0          |
+|HTML, JavaScript, CSS  |フロントエンドの開発言語          |
+|Ruby on Rails          |使用フレームワーク                |
+|Linux                  |使用OS                            |
+|bootstrap              |CSSに使用                         |
+|font-awesome           |CSSに使用                         |
 
 # 機能一覧
 |名前                     |備考                           |
