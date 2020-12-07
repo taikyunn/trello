@@ -6,15 +6,17 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
     volumes:
-      - db-data:/tmp/mysql.sock
+      # - db-data:/tmp/mysql.sock
+      - db-data:/var/lib/mysql
     ports:
-      - "3307:3306"
+      - 3306
     cap_add:
       - SYS_NICE
 
   app:
     build:
       context: .
+      dockerfile: ./containers/rails/Dockerfile_development
     env_file:
       - ./environments/db.env
     ports:
@@ -33,11 +35,9 @@ services:
       - ./public:/app/public
       - ./tmp:/app/tmp
     ports:
-      - "8080:80"
+      - "80:80"
     depends_on:
       - app
 volumes:
-  public-data:
-  tmp-data:
-  log-data:
+
   db-data:
