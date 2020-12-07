@@ -8,7 +8,8 @@ default: &default
   # username: <%= ENV.fetch('MYSQL_USER') { 'root' } %>
   # password: <%= ENV.fetch('MYSQL_PASSWORD') { 'password' } %>
   # host: db
-  host: localhost
+  host: <%= ENV['DB_HOST'] %>
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -22,9 +23,8 @@ production:
   <<: *default
   database: trello_production
   username: root
-  host: localhost
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  # socket: /var/lib/mysql/mysql.sock
   # host: <%= ENV['DB_HOST'] %>
   # database: <%= ENV['DB_DATABASE'] %>
   # username: <%= ENV['DB_USERNAME'] %>
