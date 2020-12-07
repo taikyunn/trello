@@ -1,34 +1,34 @@
 <%= render "shared/header"%>
-<div class='carddetailPage '>
-  <div class="cardContents ">
-    <div class="container">
-      <%= @nickname %>さんのリスト一覧
-      <% @lists.each do |list| %>
-        <div class='container bg-light p-5 rounded'>
-          <div class="font-weight-bold ">
-            タイトル
-            <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
-              <%= link_to content_tag(:i, '', class: 'fas fa-trash'), list, method: :delete, data: { confirm: "#{list.title}を削除して大丈夫ですか？" } %> 
-              <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_list_path(list)) %>
+  <div class='carddetailPage'>
+    <div class="cardContents">
+      <div class="container">
+        <%= current_user.nickname %>さんのリスト一覧
+        <% @lists.each do |list| %>
+          <div class='container bg-light p-5 rounded'>
+            <div class="font-weight-bold ">
+              タイトル
+              <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
+                <%= link_to content_tag(:i, '', class: 'fas fa-trash'), list, method: :delete, data: { confirm: "#{list.title}を削除して大丈夫ですか？" } %>
+                <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_list_path(list)) %>
+            </div>
+            <div class= 'cardContents_title mt-4'><%= list.title %></div>
+            <div class="font-weight-bold ">
+              説明
+              <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
+            </div>
+            <div class= 'cardContents_title mt-4'><%= list.description %> </div>
+            <div class="font-weight-bold mt-4">
+              開始時刻
+              <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+            </div>
+            <div class= 'cardContents_title mt-4'><%= list.start_date %></div>
+            <div class="font-weight-bold mt-4">
+              終了時刻
+              <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
+            </div>
+            <div class= 'cardContents_title mt-4'><%= list.end_date %></div>
           </div>
-          <div class= 'cardContents_title mt-4'><%= list.title %></div>
-          <div class="font-weight-bold ">
-            説明
-            <span  class = "bg-danger ml-2 mt-4 p-1 text-white font-weight-bold rounded" >必須</span>
-          </div>
-          <div class= 'cardContents_title mt-4'><%= list.description %> </div>
-          <div class="font-weight-bold mt-4">
-            開始時刻
-            <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
-          </div>
-          <div class= 'cardContents_title mt-4'><%= list.start_date %></div>
-          <div class="font-weight-bold mt-4">
-            終了時刻
-            <span  class = "bg-dark ml-2 mt-4 p-1 text-white font-weight-bold rounded" >任意</span>
-          </div>
-          <div class= 'cardContents_title mt-4'><%= list.end_date %></div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
