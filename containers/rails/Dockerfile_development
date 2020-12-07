@@ -17,19 +17,8 @@ ADD ./Gemfile.lock Gemfile.lock
 RUN gem install bundler
 RUN bundle install
 ADD . /app
-# RUN mkdir -p tmp/sockets
-
-# RUN SECRET_KEY_BASE=placeholder bundle exec rails assets:precompile \
-#  && yarn cache clean \
-#  && rm -rf node_modules tmp/cache
 
 ENV RAILS_SERVE_STATIC_FILES="true"
 
-# COPY entrypoint.sh /usr/bin/
-# RUN chmod +x /usr/bin/entrypoint.sh
-# ENTRYPOINT ["entrypoint.sh"]
-# EXPOSE 3000
-
-# ローカル
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
 

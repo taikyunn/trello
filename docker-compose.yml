@@ -6,7 +6,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
     volumes:
-      # - db-data:/tmp/mysql.sock
       - db-data:/var/lib/mysql
     ports:
       - 3306
