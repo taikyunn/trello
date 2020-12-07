@@ -4,9 +4,7 @@ default: &default
   pool: 5
   username: root
   host: localhost
-  socket: /mysql/mysql.sock
-  # socket: /tmp/mysql.sock
-  password: tttkr9564
+  socket: /tmp/mysql.sock
   # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   # username: <%= ENV.fetch('MYSQL_USER') { 'root' } %>
   # password: <%= ENV.fetch('MYSQL_PASSWORD') { 'password' } %>
@@ -25,3 +23,4 @@ production:
   database: trello_production
   username: root
   socket: /var/lib/mysql/mysql.sock
+  password: tttkr9564
