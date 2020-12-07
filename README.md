@@ -30,7 +30,8 @@ trello
 
 # デプロイ先
 |HEROKU |https://trello-test-3.herokuapp.com
-|AWS    |trello-lb-424772846.ap-northeast-1.elb.amazonaws.com.users/sign_in                      |
+|AWS(EC2)    |54.150.52.187
+|AWS(ECS)    |trello-lb-424772846.ap-northeast-1.elb.amazonaws.com.users/sign_in                      |
 （現在デバック作業中で開けないページが多いです。申し訳ございません。）
 
 # 言語とフレームワークなど
